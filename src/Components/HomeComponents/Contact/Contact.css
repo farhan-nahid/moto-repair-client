@@ -1,0 +1,14 @@
+.contact-container {
+  background-image: url("../../../images/contact.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100vh;
+  color: wheat;
+}
+
+.contact-form {
+  background-color: #5d53d0;
+  padding: 20px;
+  border-radius: 10px;
+}
