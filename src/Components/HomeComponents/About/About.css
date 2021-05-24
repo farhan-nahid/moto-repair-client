@@ -1,0 +1,76 @@
+.about-container {
+  height: 100vh;
+  background-image: url("../../../images/about-bg.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.banner h3 {
+  color: #404655;
+}
+
+.animate-border {
+  position: relative;
+  display: block;
+  width: 115px;
+  height: 5px;
+  background: #17a2b8;
+}
+
+.animate-border:after {
+  position: absolute;
+  content: "";
+  width: 35px;
+  height: 5px;
+  left: 0;
+  bottom: 0;
+  border-left: 10px solid rgb(197, 199, 228);
+  border-right: 10px solid rgb(197, 199, 228);
+  -webkit-animation: animborder 2s linear infinite;
+  animation: animborder 2s linear infinite;
+}
+
+@-webkit-keyframes animborder {
+  0% {
+    -webkit-transform: translateX(0px);
+    transform: translateX(0px);
+  }
+  100% {
+    -webkit-transform: translateX(81px);
+    transform: translateX(81px);
+  }
+}
+
+@keyframes animborder {
+  0% {
+    -webkit-transform: translateX(0px);
+    transform: translateX(0px);
+  }
+  100% {
+    -webkit-transform: translateX(81px);
+    transform: translateX(81px);
+  }
+}
+
+.animate-border.border-white:after {
+  border-color: #fff;
+}
+
+.animate-border.border-yellow:after {
+  border-color: #f5b02e;
+}
+
+.animate-border.border-orange:after {
+  border-right-color: #007bff;
+  border-left-color: #007bff;
+}
+
+.animate-border.border-ash:after {
+  border-right-color: #eef0ef;
+  border-left-color: #eef0ef;
+}
+
+.animate-border.border-offwhite:after {
+  border-right-color: #f7f9f8;
+  border-left-color: #f7f9f8;
+}
