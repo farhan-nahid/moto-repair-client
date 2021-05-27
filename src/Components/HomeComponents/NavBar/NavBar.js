@@ -1,6 +1,6 @@
-
 import React, { useEffect, useState } from 'react';
-import { Button, Container, Nav, Navbar } from 'react-bootstrap';
+import { Button, Container, Image, Nav, Navbar } from 'react-bootstrap';
+import logo from '../../../images/logo.png';
 
 const NavBar = () => {
 
@@ -20,7 +20,7 @@ const NavBar = () => {
     return (
         <Navbar expand="lg" className={ (isSticky || isCollapsed) ? "slide in py-2 show shadow-sm navbar navbar-expand-sm bg-white navbar-light   fixed-top" : "slide out show navbar navbar-expand-sm navbar-light py-2 fixed-top "}>
           <Container>
-              <Navbar.Brand href=""><strong>Moto Repair</strong></Navbar.Brand>
+              <Navbar.Brand href=""> <Image style={{height:'33px', width:'43px'}} src={logo} /> <strong>Moto Repair</strong></Navbar.Brand>
               <Navbar.Toggle onClick={  () => setCollapsed(!isCollapsed ? 'show' : null )} aria-controls="basic-navbar-nav"  />
                 <Navbar.Collapse id="navbar-nav" >
                   <Nav className="ml-auto text-center">

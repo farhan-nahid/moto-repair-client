@@ -1,6 +1,6 @@
 import emailjs from 'emailjs-com';
 import React from 'react';
-import { Button, Container, Form } from 'react-bootstrap';
+import { Button, Col, Container, Row } from 'react-bootstrap';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import './Contact.css';
@@ -25,34 +25,38 @@ const Contact = () => {
         }
 
     return (
-        <section className="contact-container ">
+        <section className="contact-container  pb-5">
                 <Container className="pt-5"> 
                     <h3 className="text-center">Get In Touch</h3>
                     <p className="row col-md-8 text-center m-auto">I'd Love to hear from you . Whether you have a question or just want to say hi, fell free to drop a message. I'll try my best to get back to you</p>
                       <div className="mt-4">
-                            <Form onSubmit={sendEmail} className="col-md-6 m-auto contact-form">
-                            <Form.Group controlId="formBasicSubject">
-                                <Form.Label >Your Name</Form.Label>
-                                <Form.Control type="text" placeholder="Your Name*" name="name" required />
-                            </Form.Group>
-
-                            <Form.Group controlId="formBasicEmail" onSubmit={sendEmail}>
-                                    <Form.Label>Email address</Form.Label>
-                                <Form.Control type="email" placeholder="Email Address*" name="email" required/>
-                            </Form.Group>
-                            
-                            <Form.Group controlId="formBasicSubject">
-                            <Form.Label>Your Subject</Form.Label>
-                                <Form.Control type="text" placeholder="Subject*" name="subject" required />
-                            </Form.Group>
-
-                            <Form.Group controlId="exampleForm.ControlTextarea">
-                                <Form.Label>Your Massage</Form.Label>
-                                <Form.Control as="textarea" rows={3} placeholder="Your Message*" name="message" required/>
-                            </Form.Group>
-
-                            <Button variant="info" type="submit"> Submit </Button>
-                        </Form>
+                      <form onSubmit={sendEmail} className="contact__form">
+                            <Row>
+                                <Col md="6">
+                                    <div className="contact__group">
+                                        <label htmlFor="name">Your Name</label>
+                                        <input type="text" id="name"  name="name" />
+                                    </div>
+                                    <div className="contact__group"   onSubmit={sendEmail}>
+                                        <label htmlFor="email">Email</label>
+                                        <input type="email" id="email" name="email" />
+                                    </div>
+                                    <div className="contact__group">
+                                        <label htmlFor="phone">Phone</label>
+                                        <input type="number" id="phone" name="subject"  />
+                                    </div>
+                                </Col>
+                                <Col md="6">
+                                    <div className="contact__group">
+                                        <label htmlFor="message">Message</label>
+                                        <textarea id="message" name="message"></textarea>
+                                    </div>
+                                </Col>
+                            </Row>
+                            <div className="mt-3 text-center">
+                                <Button variant='info' className="contact-btn" type="submit">Send Message</Button>
+                            </div>
+                        </form>
                       </div>
                 </Container>
            </section>
