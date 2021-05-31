@@ -15,7 +15,7 @@ const About = () => {
                         <h6 className="text-info">About Us</h6>
                         <h3>Why Choose Us For Repair ?</h3>
                         <span className="animate-border border-black"></span>
-                        <p className="text-muted mt-2"> <small>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo pariatur blanditiis voluptatem iusto. Repellat, fugiat mollitia. Architecto dignissimos labore aperiam odit rem, et odio possimus maxime. Accusantium reiciendis magnam repellendus voluptates quos voluptatem, temporibus doloremque atque deserunt ipsam tempore </small> </p>
+                        <p className="text-muted mt-2"> <small>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo pariatur blanditiis voluptatem iusto. Repellat, fugiat mollitia. Architecto dignissimos labore aperiam odit rem, et odio possimus maxime. Accusantium reiciendis magnam repellendus voluptates  </small> </p>
                         <Button variant="info">Learn More</Button>
                     </Col>
                 </Row>

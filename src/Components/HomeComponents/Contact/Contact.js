@@ -33,28 +33,28 @@ const Contact = () => {
                       <form onSubmit={sendEmail} className="contact__form">
                             <Row>
                                 <Col md="6">
-                                    <div className="contact__group">
+                                    <div className="contact-group">
                                         <label htmlFor="name">Your Name</label>
                                         <input type="text" id="name"  name="name" />
                                     </div>
-                                    <div className="contact__group"   onSubmit={sendEmail}>
+                                    <div className="contact-group"   onSubmit={sendEmail}>
                                         <label htmlFor="email">Email</label>
                                         <input type="email" id="email" name="email" />
                                     </div>
-                                    <div className="contact__group">
+                                    <div className="contact-group">
                                         <label htmlFor="phone">Phone</label>
                                         <input type="number" id="phone" name="subject"  />
                                     </div>
                                 </Col>
                                 <Col md="6">
-                                    <div className="contact__group">
+                                    <div className="contact-group">
                                         <label htmlFor="message">Message</label>
                                         <textarea id="message" name="message"></textarea>
                                     </div>
                                 </Col>
                             </Row>
                             <div className="mt-3 text-center">
-                                <Button variant='info' className="contact-btn" type="submit">Send Message</Button>
+                                <Button variant='info' className="brand-btn" type="submit">Send Message</Button>
                             </div>
                         </form>
                       </div>

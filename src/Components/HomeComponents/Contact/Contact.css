@@ -13,24 +13,18 @@
   border-radius: 10px;
 }
 
-.contact__form--box {
-  background: #fff;
-  padding: 25px;
-  border-radius: 5px;
-}
-
-.contact__group:not(:last-child) {
+.contact-group:not(:last-child) {
   margin-bottom: 20px;
 }
 
-.contact__group label {
+.contact-group label {
   color: wheat;
   font-weight: 600;
   font-size: 14px;
 }
 
-.contact__group input,
-.contact__group textarea {
+.contact-group input,
+.contact-group textarea {
   width: 100%;
   border: 2px solid #fafafc;
   background: #a7a7ec;
@@ -39,9 +33,9 @@
   transition: 0.3s;
 }
 
-.contact__group input:focus,
-.contact__group textarea:focus {
-  border: 2px solid #c69963;
+.contact-group input:focus,
+.contact-group textarea:focus {
+  border: 2px solid #054a8a;
   outline: 0;
 }
 
@@ -54,25 +48,19 @@ input[type="number"] {
   -moz-appearance: textfield;
 }
 
-.contact__group textarea {
+.contact-group textarea {
   resize: none;
   height: 245px;
 }
 
-.contact-btn {
+.brand-btn {
   font-size: 1.2rem;
   padding: 0.8rem 2rem;
   border-radius: 50px;
 }
 
 @media screen and (max-width: 767px) {
-  .contact__group:last-child {
+  .contact-group:last-child {
     margin-bottom: 20px;
-  }
-}
-
-@media screen and (max-width: 400px) {
-  .contact__form--box {
-    padding: 20px 15px;
   }
 }

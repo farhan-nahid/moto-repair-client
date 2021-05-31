@@ -8,77 +8,85 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/swiper.min.css";
 import entry from '../../../images/entry.png';
 import gear from '../../../images/gear.png';
-import helmate from '../../../images/helmate.png';
-import lilonpistol from '../../../images/lilonpistol.png';
+import helMate from '../../../images/helmate.png';
+import liloPistol from '../../../images/lilonpistol.png';
 import paint from '../../../images/paint.png';
 import silencer from '../../../images/silencer.png';
-import sitcover from '../../../images/sitcover.png';
+import sitCover from '../../../images/sitcover.png';
 import wheel from '../../../images/wheel.png';
 import "./OurTeam.css";
+import SingleMember from './SingleMember';
 
 
 SwiperCore.use([EffectCoverflow,Pagination]);
+
+const teamSlide = [
+    {
+        id:1,
+        name: 'Entry Writer' ,
+        img:entry
+    },
+    {
+        id:2,
+        name: 'Gear Expert' ,
+        img:gear
+    },
+    {
+        id:3,
+        name: 'Helmet Expert' ,
+        img:helMate
+    },
+    {
+        id:4,
+        name: 'Lilo Pistol Expert' ,
+        img:liloPistol
+    },
+    {
+        id:5,
+        name: 'Print Expert' ,
+        img:paint
+    },
+    {
+        id:6,
+        name: 'Silencer Expert' ,
+        img:silencer
+    },
+    {
+        id:7,
+        name: 'Sit cover Expert' ,
+        img:sitCover
+    },
+    {
+        id:8,
+        name: 'Wheel Expert' ,
+        img:wheel
+    }
+]
 
 const OurTeam = () => {
     return (
        <section className="team-container">
            <h3 className="pt-5">Meet our Awesome team</h3>
            <p><small>Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima, nulla! Lorem ipsum dolor sit</small></p>
-            <Swiper effect={'coverflow'} grabCursor={true} centeredSlides={true} slidesPerView={'auto'} coverflowEffect={{
+            <Swiper effect={'coverflow'} grabCursor={true} centeredSlides={true} loop={true}   
+             autoplay={{  delay: 2500, disableOnInteraction: false}} slidesPerView={'auto'} coverflowEffect={{
             "rotate": 50,
             "stretch": 0,
             "depth": 100,
             "modifier": 1,
             "slideShadows": true
-          }} pagination={true} className="mySwiper">
-            <SwiperSlide>
-                <div className="team-card">
-                    <img src={entry} alt='...' />
-                    <h5>Entry Writer</h5>
-                </div>
-            </SwiperSlide>
-            <SwiperSlide>
-                <div className="team-card">
-                    <img src={gear} alt='...' />
-                    <h5>Gear Expert</h5>
-                </div>
-            </SwiperSlide>
-            <SwiperSlide>
-                <div className="team-card">
-                    <img src={helmate} alt='...' />
-                    <h5>Helmet Expert</h5>
-                </div>
-            </SwiperSlide>
-            <SwiperSlide>
-                <div className="team-card">
-                    <img src={lilonpistol} alt='...' />
-                    <h5>Lilo Pistol Expert</h5>
-                </div>
-            </SwiperSlide>
-            <SwiperSlide>
-                <div className="team-card">
-                     <img src={paint} alt='...' />
-                      <h5>Print Expert</h5>
-                </div>
-            </SwiperSlide>
-            <SwiperSlide>
-                 <div className="team-card">
-                    <img src={silencer}alt='...' />
-                    <h5>Silencer Expert</h5>
-                </div>
-            </SwiperSlide>
-            <SwiperSlide>
-                 <div className="team-card">
-                    <img src={sitcover} alt='...' />
-                    <h5>Sit cover Expert</h5>
-                </div>
-            </SwiperSlide>
-            <SwiperSlide>
-                <div className="team-card">
-                     <img src={wheel} alt='...' />
-                     <h5>Wheel Expert</h5>
-                </div>
-            </SwiperSlide>
+          }} pagination={true}>
+                {
+                        teamSlide.map(team => {
+                            return(
+                                <SwiperSlide  key={team.id}>
+                                    <SingleMember team={team} />)
+                                </SwiperSlide>
+                            )
+                        })
+                }
+            
+          
             </Swiper>
        </section>
     );
