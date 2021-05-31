@@ -93,7 +93,14 @@ a[data-toggle="collapse"] {
   background: #6d7fcc;
 }
 
-.home-btn {
-  margin-left: 30px !important;
-  margin-right: 30px !important;
+.home-button {
+  font-size: 0.9em !important;
+  padding-left: 30px !important;
+}
+
+.back-to-home {
+  padding-left: 20px !important;
+  padding-right: 20px !important;
+  padding-top: 10px !important;
+  padding-bottom: 7px !important;
 }

@@ -17,21 +17,21 @@ const Review = () => {
 }
     return (
         <section>
-        <Form onSubmit={handleSubmit(onSubmit)} className="w-100 form-main">
+        <Form onSubmit={handleSubmit(onSubmit)} className="w-100 form-main shadow">
             <div className="p-5 mx-auto mt-5 bg-white" style={{ borderRadius: "15px", maxWidth: '50rem' }}>
                 <Form.Row className="justify-content-center px-4">
-                    <Form.Group as={Col} md={12}>
-                        <Form.Label style={{ fontWeight: "bold" }}>Your Name</Form.Label>
-                        <Form.Control type="text" value={name} {...register("name", { required: true })}  placeholder="Your Name" />
+                    <Form.Group as={Col} md={12} className='admin-group'>
+                        <Form.Label>Your Name</Form.Label>
+                        <Form.Control type="text" value={name} {...register("name", { required: true })}  placeholder="Enter Your Name" />
                     </Form.Group>
 
-                    <Form.Group as={Col} md={12}>
-                        <Form.Label style={{ fontWeight: "bold" }}>Address</Form.Label>
-                        <Form.Control    type="text" {...register("address", { required: true })} placeholder="Address" />
+                    <Form.Group as={Col} md={12} className='admin-group'>
+                        <Form.Label>Address</Form.Label>
+                        <Form.Control    type="text" {...register("address", { required: true })} placeholder="Enter Your Address" />
                     </Form.Group>
 
-                    <Form.Group as={Col} md={12}>
-                        <Form.Label style={{ fontWeight: "bold" }}>Description</Form.Label>
+                    <Form.Group as={Col} md={12} className='admin-group'>
+                        <Form.Label>Description</Form.Label>
                         <Form.Control style={{ height: "10rem" }} type="text"as="textarea"{...register("description", { required: true })} placeholder="Tell me Something about this site." />
                     </Form.Group>
 

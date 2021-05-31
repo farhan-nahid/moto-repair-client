@@ -30,7 +30,7 @@ const Contact = () => {
                     <h3 className="text-center">Get In Touch</h3>
                     <p className="row col-md-8 text-center m-auto">I'd Love to hear from you . Whether you have a question or just want to say hi, fell free to drop a message. I'll try my best to get back to you</p>
                       <div className="mt-4">
-                      <form onSubmit={sendEmail} className="contact__form">
+                      <form onSubmit={sendEmail} className="contact-form">
                             <Row>
                                 <Col md="6">
                                     <div className="contact-group">

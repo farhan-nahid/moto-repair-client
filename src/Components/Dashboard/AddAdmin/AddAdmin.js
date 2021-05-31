@@ -10,8 +10,8 @@ const AddAdmin = () => {
     }
 
     return (
-        <section className="make-admin">
-            <Form onSubmit={handleSubmit(onSubmit)}>
+        <section className="make-admin shadow">
+            <Form onSubmit={handleSubmit(onSubmit)} className='admin-group'>
                 <div className="p-5 mx-md-5 mt-5 bg-white form-main d-flex justify-content-center">
                     <div className="py-md-4">
                         <Form.Label>Email</Form.Label>

@@ -11,7 +11,7 @@ import {
 } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React from 'react';
-import { Image } from 'react-bootstrap';
+import { Button, Image } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import logo from '../../../images/logo.png';
 import './SideBar.css';
@@ -65,13 +65,9 @@ const SideBar = () => {
                         </Link>
                     </li>
              </ul>
-             <ul className="list-unstyled">
-                <li>
-                    <Link to="/" className="btn btn-info home-btn">
-                        <FontAwesomeIcon icon={faSignOutAlt} /> Back to Home
-                    </Link>
-                </li>
-            </ul>
+             <div className='home-button'>
+                <Button variant='info' as={Link} to='/' className='back-to-home'><FontAwesomeIcon icon={faSignOutAlt} /> <span className='ml-2'>Back to Home </span></Button>
+            </div>
         </nav>
     );
 };
