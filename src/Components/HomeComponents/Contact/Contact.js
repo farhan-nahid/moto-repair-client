@@ -35,21 +35,21 @@ const Contact = () => {
                                 <Col md="6">
                                     <div className="contact-group">
                                         <label htmlFor="name">Your Name</label>
-                                        <input type="text" id="name"  name="name" />
+                                        <input type="text" id="name"  name="name" placeholder="Enter Your Name" />
                                     </div>
                                     <div className="contact-group"   onSubmit={sendEmail}>
                                         <label htmlFor="email">Email</label>
-                                        <input type="email" id="email" name="email" />
+                                        <input type="email" id="email" name="email" placeholder="Enter Your Email" />
                                     </div>
                                     <div className="contact-group">
                                         <label htmlFor="phone">Phone</label>
-                                        <input type="number" id="phone" name="subject"  />
+                                        <input type="number" id="phone" name="subject" placeholder="Enter Your Phone Number"  />
                                     </div>
                                 </Col>
                                 <Col md="6">
                                     <div className="contact-group">
                                         <label htmlFor="message">Message</label>
-                                        <textarea id="message" name="message"></textarea>
+                                        <textarea id="message" name="message" placeholder='Give me a mail'></textarea>
                                     </div>
                                 </Col>
                             </Row>

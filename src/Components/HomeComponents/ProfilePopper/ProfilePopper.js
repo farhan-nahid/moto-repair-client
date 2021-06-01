@@ -19,11 +19,7 @@ const ProfilePopper = () => {
     }
 
     return (
-          <OverlayTrigger
-            trigger="click"
-            rootClose
-            key="bottom"
-            placement="bottom"
+          <OverlayTrigger trigger="click" rootClose key="bottom" placement="bottom"
             overlay={
                 <Popover id="popover-positioned-bottom">
                     <div className="d-flex justify-content-center">
@@ -33,24 +29,14 @@ const ProfilePopper = () => {
                         <strong className="text-center d-block">{name}</strong>
                         <strong className="text-center d-block">{email}</strong>
                         <div className="d-flex justify-content-center mt-1">
-                            <Button onClick={signOut}
-                                variant="outline-info"
-                                className="py-0 px-1"
-                                size="sm">Logout</Button>
+                            <Button onClick={signOut} variant="outline-info" className="py-0 px-1"  size="sm">Logout</Button>
                         </div>
                     </Popover.Content>
                 </Popover>
             }
         >
-            <Nav.Link className="p-0">
-                <Image
-                    src={photo}
-                    width="40"
-                    height="40"
-                    roundedCircle
-                    className="d-inline-block align-top"
-                    alt="Profile"
-                />
+            <Nav.Link className="p-0 ">
+                <Image style={{boxShadow:'-2px 3px 19px 4px'}}   src={photo} width="40" height="40" roundedCircle className="d-inline-block align-top" alt="..."  />
             </Nav.Link>
         </OverlayTrigger>
     );

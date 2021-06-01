@@ -80,7 +80,7 @@ const OurTeam = () => {
                         teamSlide.map(team => {
                             return(
                                 <SwiperSlide  key={team.id}>
-                                    <SingleMember team={team} />)
+                                    <SingleMember team={team} />
                                 </SwiperSlide>
                             )
                         })

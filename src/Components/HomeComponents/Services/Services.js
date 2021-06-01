@@ -10,7 +10,7 @@ const Services = () => {
     const [services, setServices] = useState([]);
 
     useEffect(() => {
-        axios.get('https://gerez-server.herokuapp.com/services')
+        axios.get('http://localhost:5000/all-services')
             .then(res => {
                 setServices(res.data);
                 setLoading(false);
@@ -21,10 +21,10 @@ const Services = () => {
     return (
         <section id="services" className="text-center py-5">
             <h5>What We Do</h5>
-            <h1>Services We Provide</h1>
+            <h3>Services We Provide</h3>
             <Row className="justify-content-center mx-auto mt-md-5 pt-5">
                 {
-                    loading ? <Spinner animation="border" variant="danger" /> :
+                    loading ? <Spinner animation="border" variant="info" /> :
                         services.map(service => <ServiceDetail key={service._id} service={service} />)
                 }
             </Row>

@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Toast } from 'react-bootstrap';
 import LoginModal from '../Components/LoginAuth/LoginModal';
-import infoEmojis from '../images/info.svg';
+import infoEmojis from '../images/info-emoji.svg';
 
 
 const Login = () => {

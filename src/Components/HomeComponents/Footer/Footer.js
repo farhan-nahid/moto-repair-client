@@ -20,7 +20,7 @@ const Footer = () => {
                                     </div>
                                     <h3 className="text-center mb-0">Moto Repair</h3>
                                 </div>
-                                    <p className="text-muted"><small> Reference site about Lorem Ipsum, giving information on its origins, as well as a random Lipsum generator.</small> </p>
+                                    <p className="text-muted text-center"><small> Reference site about Lorem Ipsum, giving information on its origins, as well as a random Lipsum generator.</small> </p>
                                  <div className="text-center icons">
                                         <a href="https://www.facebook.com/dev.farhanNahid/" className="mr-3 facebook" target="-blank"> <FontAwesomeIcon icon={faFacebookF} /></a>
                                         <a href="https://www.linkedin.com/in/farhan-nahid/" className="mr-3 linkedIn" target="-blank"><FontAwesomeIcon icon={faLinkedinIn} /></a>
@@ -50,8 +50,7 @@ const Footer = () => {
                             </div>
                         </Col>
                 </Row>
-          </Container>
-           
+          </Container>   
         </footer>
     );
 };
