@@ -23,7 +23,7 @@ const ProfilePopper = () => {
             overlay={
                 <Popover id="popover-positioned-bottom">
                     <div className="d-flex justify-content-center">
-                        <Image style={{ maxWidth: "60px" }} src={photo} roundedCircle />
+                        <Image style={{ maxWidth: "60px", border:'1px solid #17a2b8' }} src={photo} roundedCircle />
                     </div>
                     <Popover.Content>
                         <strong className="text-center d-block">{name}</strong>
@@ -36,7 +36,7 @@ const ProfilePopper = () => {
             }
         >
             <Nav.Link className="p-0 ">
-                <Image style={{boxShadow:'-2px 3px 19px 4px'}}   src={photo} width="40" height="40" roundedCircle className="d-inline-block align-top" alt="..."  />
+                <Image style={{border:'1px solid #17a2b8' }}   src={photo} width="40" height="40" roundedCircle className="d-inline-block align-top" alt="..."  />
             </Nav.Link>
         </OverlayTrigger>
     );

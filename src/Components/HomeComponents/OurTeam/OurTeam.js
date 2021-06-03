@@ -66,7 +66,7 @@ const teamSlide = [
 const OurTeam = () => {
     return (
        <section className="team-container">
-           <h3 className="pt-5">Meet our Awesome team</h3>
+           <h3>Meet our Awesome team</h3>
            <p><small>Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima, nulla! Lorem ipsum dolor sit</small></p>
             <Swiper effect={'coverflow'} grabCursor={true} centeredSlides={true} loop={true}   
              autoplay={{  delay: 2500, disableOnInteraction: false}} slidesPerView={'auto'} coverflowEffect={{
@@ -75,7 +75,22 @@ const OurTeam = () => {
             "depth": 100,
             "modifier": 1,
             "slideShadows": true
-          }} pagination={true}>
+          }} pagination={true}
+          breakpoints={{
+            640: {
+                slidesPerView: 1,
+                spaceBetween: 2,
+            },
+            768: {
+                slidesPerView: 2,
+                spaceBetween: 10,
+            },
+            1024: {
+                slidesPerView: 3,
+                spaceBetween: 10,
+            },
+        }}
+          >
                 {
                         teamSlide.map(team => {
                             return(

@@ -5,7 +5,7 @@ import './OurTeam.css';
 const SingleMember = ({team}) => {
     return (
         <div className='team-member'>
-            <Image src={team.img} alt="..." />
+            <Image style={{height:'300px'}} src={team.img} alt="..." />
             <h5>{team.name}</h5>
         </div>
     );

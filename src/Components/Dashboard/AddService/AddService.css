@@ -18,7 +18,8 @@
 }
 
 .admin-group input,
-.admin-group textarea {
+.admin-group textarea,
+.admin-group select {
   width: 100%;
   border: 1px solid #10bad4;
   background: #efeff5;

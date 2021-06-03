@@ -1,6 +1,8 @@
 .testimonials {
-  background: aliceblue;
-  height: 700px;
+  background-image: url("../../../images/about-bg.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  padding: 70px 0;
 }
 
 .testimonials > div {
@@ -16,7 +18,7 @@
 
 .review-title > span {
   font-size: 1rem;
-  color: #ed5217;
+  color: #17a2b8;
   text-transform: capitalize;
   display: block;
   margin-top: -0.6em;
@@ -45,7 +47,7 @@
   bottom: 0;
   width: 5rem;
   height: 3px;
-  background: #ed5217;
+  background: #17a2b8;
   border-radius: 20px;
   left: 50% !important;
   -webkit-transform: translateX(-50%);
@@ -60,12 +62,12 @@
   height: 10px;
   width: 10px;
   background: #fff;
-  border: 2px solid #ed5217;
+  border: 2px solid #17a2b8;
   margin: 0 5px;
 }
 
 .testimonials .swiper-pagination .swiper-pagination-bullet-active {
-  background: #ed5217;
+  background: #17a2b8;
   height: 12px;
   width: 12px;
   margin-bottom: -1px;
@@ -90,7 +92,7 @@
 }
 
 .testimonials .card h5 {
-  color: #ed5217;
+  color: #17a2b8;
   font-size: 21px;
   line-height: 1.3;
 }

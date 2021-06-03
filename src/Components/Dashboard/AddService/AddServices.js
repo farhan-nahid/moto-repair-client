@@ -7,7 +7,7 @@ import { useForm } from 'react-hook-form';
 import './AddService.css';
 
 const AddServices = () => {
-    const { register, handleSubmit } = useForm();
+    const { register, handleSubmit, reset } = useForm();
     const [imageURL, setImageURL] = useState(null)
 
     const onSubmit =  data => {
@@ -27,7 +27,10 @@ const AddServices = () => {
             },
             body:JSON.stringify(serviceData)
         })
-        .then(res=>console.log("server site", res))
+        .then(res=>{
+            reset();
+        console.log("server site", res)
+    })
     }
 
     const handleImageUpload = event =>{
@@ -37,13 +40,12 @@ const AddServices = () => {
   
         axios.post('https://api.imgbb.com/1/upload', imageData)
         .then(function (response) {
-            console.log(response.data.data.display_url);
           setImageURL(response.data.data.display_url);
         })
         .catch(function (error) {
-          console.log(error);
+
         });
-      }
+     }
 
     return (
         <section className="add-service shadow">

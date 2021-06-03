@@ -1,9 +1,9 @@
 .team-container {
-  height: 100vh;
   background-image: url("../../../images/header-bg.png");
   background-repeat: no-repeat;
   background-size: cover;
   text-align: center;
+  padding-top: 5rem;
 }
 
 .team-container h3 {
@@ -15,7 +15,6 @@
   background-color: aliceblue;
   padding: 10px;
   border-radius: 10px;
-  box-shadow: 0px 2px 5px rgb(0 0 0 / 20%);
 }
 
 .swiper-container {
@@ -26,7 +25,6 @@
 
 .swiper-slide {
   background-position: center;
-  background-size: cover;
   width: 300px;
   height: 300px;
 }
@@ -34,4 +32,5 @@
 .swiper-slide img {
   display: block;
   width: 100%;
+  background-size: cover;
 }

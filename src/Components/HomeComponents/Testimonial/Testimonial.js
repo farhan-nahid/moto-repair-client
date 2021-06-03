@@ -1,17 +1,33 @@
+import { faStar } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React from 'react';
-import { Card } from 'react-bootstrap';
+import './Testimonial.css';
 
-const Testimonial = ({ testimonial: { name, address, img, description } }) => {
+const showRating = (star) => {
+    const stars = [];
+    const int = parseInt(star, 10)
+    for (let i = 1; i <= int; i++) {
+      stars.push(<FontAwesomeIcon className='rating-icon' icon={faStar} />)
+    }
     return (
-        <Card className="my-4">
-            <Card.Img variant="top" src={img} width="60" />
-            <Card.Body className="text-center">
-                <h5>{name} <br />
-                    <span>{address}</span>
-                </h5>
-                <Card.Text>{description.slice(0, 165)}</Card.Text>
-            </Card.Body>
-        </Card>
+      <div>{ stars }</div>
+    )
+  }
+
+const Testimonial = ({ testimonial: { name, address, img, description, star } }) => {
+    return (
+        <div className="testimonial-card">
+        <div className="testimonial-avatar-box">
+            <img className="testimonial-avatar img-fluid" src={img} alt={name} />
+        </div>
+        <div className="testimonial-content">
+            <div className="testimonial-description">
+                <p>{description}</p>
+            </div>
+            <h5 className="testimonial-name text-info">{name}</h5>
+            <h6>  {  showRating(star) }  </h6>
+        </div>
+    </div>
     );
 };
 
