@@ -1,5 +1,4 @@
 import React, { useContext, useState } from 'react';
-import { Col, Row } from 'react-bootstrap';
 import { useHistory, useParams } from 'react-router';
 import { UserContext } from '../App';
 import AddAdmin from '../Components/Dashboard/AddAdmin/AddAdmin';
@@ -36,28 +35,21 @@ const Dashboard = ({adminLoading}) => {
 
     return (
         <main className="wrapper">
-            <Row>
-                <Col md={3}>
-                    <SideBar show={showSidebar} adminLoading={adminLoading} />
-                </Col>
-           
-                <Col md={9}>
-                <div  id="content">
-                      <NavBar setShowSidebar={setShowSidebar} show={showSidebar}  />
-                    {
-                        panel === "profile" ?  <Profile />
-                        :panel === "book" ? <Book />
-                        :panel === "book-list" ? <BookList />
-                        :panel === "reviews" ? <Review />
-                        :panel === "add-services"  && isAdmin ? <AddServices />
-                        :panel === "add-admins"  && isAdmin ? <AddAdmin />
-                        :panel === "all-orders"  && isAdmin  ? <OrderList />
-                        :panel === "manage-services"  && isAdmin  ? <ManageService />
-                        : null
-                    }
-                </div>
-                </Col>
-                </Row>
+          <SideBar show={showSidebar} adminLoading={adminLoading} />
+            <div  id="content">
+               <NavBar setShowSidebar={setShowSidebar} show={showSidebar}  />
+                {
+                    panel === "profile" ?  <Profile />
+                    :panel === 'book' ? <Book />
+                    :panel === "book-list" ? <BookList />
+                    :panel === "reviews" ? <Review />
+                    :panel === "add-services"  && isAdmin ? <AddServices />
+                    :panel === "add-admins"  && isAdmin ? <AddAdmin />
+                    :panel === "all-orders"  && isAdmin  ? <OrderList />
+                    :panel === "manage-services"  && isAdmin  ? <ManageService />
+                    : null
+                }
+            </div>
         </main>
     );
 };

@@ -1,6 +1,6 @@
 import axios from 'axios';
 import React, { useContext } from 'react';
-import { Button, Col, Form } from 'react-bootstrap';
+import { Button, Col, Container, Form } from 'react-bootstrap';
 import { useForm } from "react-hook-form";
 import toast from 'react-hot-toast';
 import swal from 'sweetalert';
@@ -31,23 +31,23 @@ const AddAdmin = () => {
  }
 
     return (
-        <section className="make-admin shadow">
-            <Form onSubmit={handleSubmit(onSubmit)} className='admin-group'>
-                <div className="p-5 mx-md-5 mt-5 bg-white form-main d-flex justify-content-center">
-                    <div className="py-md-4">
-                        <Form.Label>Email</Form.Label>
-                        <Form.Row>
-                            <Form.Group as={Col} xs="auto" style={{ width: '25rem' }} >
-                                <Form.Control type="text"{...register("email", { required: true })}  placeholder="Admin's Email Address" />
-                            </Form.Group>
-                            <Form.Group as={Col} xs="auto">
-                                <Button type="submit"  variant='info' >Add Admin</Button>
-                            </Form.Group>
-                        </Form.Row>
+            <Container>
+                <Form onSubmit={handleSubmit(onSubmit)} className='admin-group'>
+                    <div className="p-5 mx-md-5 mt-5 bg-white form-main d-flex justify-content-center shadow" style={{ borderRadius: "15px", maxWidth:'85rem' }}>
+                        <div className="py-md-4">
+                            <Form.Label>Email</Form.Label>
+                            <Form.Row>
+                                <Form.Group as={Col} xs="auto" style={{ width: '25rem' }} >
+                                    <Form.Control type="text"{...register("email", { required: true })}  placeholder="Admin's Email Address" />
+                                </Form.Group>
+                                <Form.Group as={Col} xs="auto">
+                                    <Button type="submit"  variant='info' >Add Admin</Button>
+                                </Form.Group>
+                            </Form.Row>
+                        </div>
                     </div>
-                </div>
-            </Form>
-        </section>
+                </Form>
+            </Container>
     );
 };
 

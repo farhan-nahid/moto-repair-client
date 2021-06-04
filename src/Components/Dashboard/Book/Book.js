@@ -2,7 +2,7 @@ import { Elements } from '@stripe/react-stripe-js';
 import { loadStripe } from '@stripe/stripe-js';
 import axios from 'axios';
 import React, { useContext, useEffect, useState } from 'react';
-import { Col, Row, Toast } from 'react-bootstrap';
+import { Col, Container, Row, Toast } from 'react-bootstrap';
 import toast from 'react-hot-toast';
 import Select from 'react-select';
 import { UserContext } from '../../../App';
@@ -12,14 +12,11 @@ import StripePayment from '../StripePayment/StripePayment';
 const Book = () => {
     const { selectedService: { name, price } } = useContext(UserContext);
     const [show, setShow] = useState(true);
-
-    const stripePromise = loadStripe('pk_test_51Ie11ZIo3XVCKagbJJnefC4ruHwRuiiS8mPOiugOUPZ3F9isu6mCQJjhdMQ9SHugvc8Y6pjEGk2xYIMhOW2CpJQN00ArldL7I3');
     const [services, setServices] = useState([]);
 
+    const stripePromise = loadStripe('pk_test_51Ie11ZIo3XVCKagbJJnefC4ruHwRuiiS8mPOiugOUPZ3F9isu6mCQJjhdMQ9SHugvc8Y6pjEGk2xYIMhOW2CpJQN00ArldL7I3');
     const options = services.map(service => ({ value: service.name, label: service.name, price: service.price }));
-
     const defaultOption = name ? { value: name, label: name, price: price } : options[0] || { value: "Engine Repair", label: "Engine Repair", price: 20000 };
-
     const [selectedOption, setSelectedOption] = useState(defaultOption);
     const serviceInfo = services.find(service => service.title === selectedOption.value);
 
@@ -36,7 +33,7 @@ const Book = () => {
                 backgroundColor: 'white',
                 boxShadow: 'none',
                 border: "2px solid #ced4da",
-                '&:hover': { border: '2px solid #fd7e15' },
+                '&:hover': { border: '2px solid #17a2b8' },
                 height: "calc(2em + 0.75rem + 2px)"
             }
         ),
@@ -44,14 +41,17 @@ const Book = () => {
         option: (styles, { isDisabled, isFocused, isSelected }) => {
             return {
                 ...styles,
-                backgroundColor: isDisabled ? null : isSelected ? "#fd7709" : isFocused ? "#fd770928" : null,
+                backgroundColor: isDisabled ? null : isSelected ? "#17a2b8" : isFocused ? "#16c8e48c" : null,
                 color: isDisabled ? null : isSelected ? "white" : isFocused ? "black" : "black",
                 cursor: isDisabled ? 'not-allowed' : 'default',
-                ':active': { ...styles[':active'], backgroundColor: !isDisabled && (isSelected ? "#fd7709" : "#fd770948") },
+                ':active': { ...styles[':active'], backgroundColor: !isDisabled && (isSelected ? "#17a2b8" : "#16c8e48c") },
             };
         },
     };
+
     return (
+
+
         <>
         <Toast className="toast-right" onClose={() => setShow(false)} show={show} delay={5000} autohide>
             <Toast.Header>
@@ -65,11 +65,11 @@ const Book = () => {
             </Toast.Body>
         </Toast>
 
-        <section className='w-100 shadow'>
-                <div className='p-5 bg-white'>
-                    <Row>
-                        <Col md={6} xs={12} className="pr-md-4">
-                            <label style={{ fontWeight: "bold" }}>Service</label>
+        <section >
+                <Container >
+                    <Row className="bg-white p-5 shadow" style={{ borderRadius: "15px", maxWidth:'85rem' }}>
+                        <Col md={6} xs={12} className='admin-group'>
+                            <label >Service</label>
                             <Select
                                 onChange={option => setSelectedOption(option)}
                                 defaultValue={defaultOption}
@@ -77,22 +77,56 @@ const Book = () => {
                                 styles={colourStyles}
                             />
                         </Col>
-                        <Col md={6} xs={12} className="pl-md-4 form-main">
-                            <label style={{ fontWeight: "bold" }}>Price</label>
+                        <Col md={6} xs={12} className="admin-group">
+                            <label >Price</label>
                             <div className="form-control w-50 pl-3" style={{ lineHeight: "2", fontWeight: "500" }}>
                                 ${price || selectedOption.price}
                             </div>
                         </Col>
                     </Row>
 
-                    <div className="mt-5">
+                    <div className="mt-5 bg-white p-5" style={{ borderRadius: "15px", maxWidth:'85rem' }}>
                         <Elements stripe={stripePromise}>
                             <StripePayment serviceInfo={serviceInfo} />
                         </Elements>
                     </div>
-                </div>
+                </Container>
         </section>
     </>
+
+    //     <section className="checkout">
+    //     <Container>
+    //         <div className="checkout-package">
+    //             <table className="checkout-table">
+    //                 <thead>
+    //                     <tr>
+    //                         <th>Package</th>
+    //                         <th>Price</th>
+    //                     </tr>
+    //                 </thead>
+    //                 <tbody>
+    //                     <tr>
+    //                         <td>
+    //                               {/* <Select
+    //                                 onChange={option => setSelectedOption(option)}
+    //                                 defaultValue={defaultOption}
+    //                                 options={options}
+    //                                 styles={colourStyles}
+    //                             /> */}
+    //                         </td>
+    //                         {/* <td> ${price || selectedOption.price}</td> */}
+    //                     </tr>
+    //                 </tbody>
+    //             </table>
+    //         </div>
+    //         <div className="checkout-content">
+    //             <Elements stripe={stripePromise}>
+    //                 <StripePayment  />
+    //             </Elements>
+    //         </div>
+    //     </Container>
+    // </section>
+
     );
 };
 

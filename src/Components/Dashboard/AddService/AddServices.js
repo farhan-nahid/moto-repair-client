@@ -2,7 +2,7 @@ import { faCloudUploadAlt } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import axios from 'axios';
 import React, { useState } from 'react';
-import { Button, Col, Form } from 'react-bootstrap';
+import { Button, Col, Container, Form } from 'react-bootstrap';
 import { useForm } from 'react-hook-form';
 import swal from 'sweetalert';
 import './AddService.css';
@@ -52,40 +52,42 @@ const AddServices = () => {
      }
 
     return (
-        <section className="add-service shadow">
-        <Form onSubmit={handleSubmit(onSubmit)} className="w-100">
-            <div className="py-5 mx-auto mt-5 bg-white form-main" style={{ borderRadius: "15px", maxWidth:'85rem' }}>
-                <Form.Row className="justify-content-center">
-                    <Form.Group as={Col} md={5} sm={12} className="mr-md-5 admin-group">
-                        <Form.Label>Service Title</Form.Label>
-                        <Form.Control type="text" {...register("title", { required: true })}placeholder="Enter Service Title" />
-                    </Form.Group>
+        <section className="add-service">
+            <Container>
+                <Form onSubmit={handleSubmit(onSubmit)} className="w-100 shadow">
+                    <div className="p-5 bg-white form-main" style={{ borderRadius: "15px", maxWidth:'85rem' }}>
+                        <Form.Row className="justify-content-center">
+                            <Form.Group as={Col} md={5} sm={12} className="mr-md-5 admin-group">
+                                <Form.Label>Service Title</Form.Label>
+                                <Form.Control type="text" {...register("title", { required: true })}placeholder="Enter Service Title" />
+                            </Form.Group>
 
-                    <Form.Group as={Col} md={5} sm={12} className='admin-group'>
-                        <Form.Label >Price</Form.Label>
-                        <Form.Control style={{ maxWidth: "260px" }} type="number" {...register("price", {required: true })} placeholder="Enter Service Price" />
-                    </Form.Group>
+                            <Form.Group as={Col} md={5} sm={12} className='admin-group'>
+                                <Form.Label >Price</Form.Label>
+                                <Form.Control style={{ maxWidth: "260px" }} type="number" {...register("price", {required: true })} placeholder="Enter Service Price" />
+                            </Form.Group>
 
-                    <Form.Group as={Col} md={5} sm={12} className="mr-md-5 mt-md-3 admin-group">
-                        <Form.Label>Description</Form.Label>
-                        <Form.Control type="text" as="textarea"{...register("description", { required: true})} placeholder="Enter Service Description" />
-                    </Form.Group>
+                            <Form.Group as={Col} md={5} sm={12} className="mr-md-5 mt-md-3 admin-group">
+                                <Form.Label>Description</Form.Label>
+                                <Form.Control type="text" as="textarea"{...register("description", { required: true})} placeholder="Enter Service Description" />
+                            </Form.Group>
 
-                    <Form.Group as={Col} md={5} sm={12} className="mt-md-3 admin-group">
-                        <Form.Label>Add Image</Form.Label>
-                        <Button as={"label"} htmlFor="upload" variant="outline-primary" className="d-block p-2 upload-btn">
-                        <FontAwesomeIcon icon={faCloudUploadAlt} className="mr-2" />Upload Image
-                        </Button>
-                        <Form.Control hidden="hidden" id="upload" onChange={handleImageUpload} type="file" placeholder="Upload photo" />
-                    </Form.Group>
+                            <Form.Group as={Col} md={5} sm={12} className="mt-md-3 admin-group">
+                                <Form.Label>Add Image</Form.Label>
+                                <Button as={"label"} htmlFor="upload" variant="outline-primary" className="d-block p-2 upload-btn">
+                                <FontAwesomeIcon icon={faCloudUploadAlt} className="mr-2" />Upload Image
+                                </Button>
+                                <Form.Control hidden="hidden" id="upload" onChange={handleImageUpload} type="file" placeholder="Upload photo" />
+                            </Form.Group>
 
-                </Form.Row>
-                <div className="text-center mt-4">
-                    <Button type="submit" variant='info' >Add Service</Button>
-                </div>
-            </div>
-        </Form>
-    </section>
+                        </Form.Row>
+                        <div className="text-center mt-4">
+                            <Button type="submit" variant='info' >Add Service</Button>
+                        </div>
+                    </div>
+                </Form>
+             </Container>
+        </section>
     );
 };
 

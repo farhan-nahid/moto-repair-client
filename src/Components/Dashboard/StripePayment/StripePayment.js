@@ -1,145 +1,123 @@
-import {
-    CardCvcElement,
-    CardExpiryElement,
-    CardNumberElement,
-    useElements,
-    useStripe
-} from '@stripe/react-stripe-js';
-import axios from 'axios';
+import { CardCvcElement, CardExpiryElement, CardNumberElement, useElements, useStripe } from '@stripe/react-stripe-js';
 import React, { useContext, useMemo } from 'react';
-import { Button, Col, Form } from 'react-bootstrap';
-import { useForm } from 'react-hook-form';
+import { Button, Col, Form, Row } from 'react-bootstrap';
 import toast from 'react-hot-toast';
-import swal from 'sweetalert';
 import { UserContext } from '../../../App';
 
+
 const useOptions = () => {
-    const options = useMemo(() => ({
-        style: {
-            base: {
-                fontSize: "1.2rem",
-                lineHeight: "2",
-                color: "#495057",
-                letterSpacing: "0.025em",
-                "::placeholder": {
-                    color: "#aab7c4"
+    const options = useMemo(
+        () => ({
+            style: {
+                base: {
+                    color: "#101d2c",
+                    letterSpacing: "0.025em",
+                    "::placeholder": {
+                        color: "#aab7c4"
+                    }
+                },
+                invalid: {
+                    color: "#9e2146"
                 }
-            },
-            invalid: {
-                color: "#9e2146"
             }
-        }
-    }), []);
+        }),
+        []
+    );
+
     return options;
 };
 
-const StripePayment = ({ serviceInfo }) => {
-    const { loggedInUser: { name, email } } = useContext(UserContext);
+
+const StripePayment = ({ orders }) => {
     const stripe = useStripe();
     const elements = useElements();
     const options = useOptions();
-    const { register, handleSubmit } = useForm();
+    const { loggedInUser } = useContext(UserContext);
 
-    const onSubmit = async data => {
-    if (!stripe || !elements) {
-        return;
-    }
-    const loading = toast.loading('Please wait...!');
+    const handlePayment = async e => {
+        e.preventDefault();
 
-    const { error, paymentMethod } = await stripe.createPaymentMethod({
-        type: "card",
-        card: elements.getElement(CardNumberElement)
-    });
+        if (!stripe || !elements) {
+            return;
+        }
 
-    if (error) {
-        toast.dismiss(loading);
-        return swal("Failed!", error.message, "error", { dangerMode: true });
-    }
+        const payload = await stripe.createPaymentMethod({
+            type: "card",
+            card: elements.getElement(CardNumberElement),
+            billing_details: {
+                name: e.target.name.value,
+                email: e.target.email.value,
+                address: {
+                    city: e.target.address.value
+                }
+            }
+        });
 
-    delete serviceInfo._id;
-    serviceInfo.service = serviceInfo.title;
-    data.payWith = "Credit Card";
-    data.status = "Pending";
+        const { card, billing_details } = payload.paymentMethod;
+        const bookingInfo = {
+            orders: orders,
+            email: loggedInUser.email,
+            paymentMethod: 'Credit Card',
+            card,
+            billing_details,
+            status: 'pending'
+        };
 
-    const orderDetails = {
-        ...data,
-        ...serviceInfo,
-        paymentId: paymentMethod.id,
-        orderTime: new Date().toLocaleString()
+        fetch('http://localhost:5000/add-order', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(bookingInfo)
+        })
+            .then(res => res.json())
+            .then(data => {
+                if (data) {
+                    toast.success('Booking Successfully!...');
+                };
+
+            });
     };
 
-    axios.post('http://localhost:5000/add-order', orderDetails)
-        .then(res => {
-            toast.dismiss(loading);
-            if (res.data) {
-                return swal("Payment successful", "Your booking and payment has been successful.", "success");
-            }
-            swal("Failed!", "Something went wrong! Please try again.", "error", { dangerMode: true });
-        })
-        .catch(error => {
-            toast.dismiss(loading);
-            swal("Failed!", "Something went wrong! Please try again.", "error", { dangerMode: true });
-        });
-}
     return (
-        <section>
-        <Form onSubmit={handleSubmit(onSubmit)}>
-            <div className="form-main" style={{ borderRadius: "15px", maxWidth: '85rem' }}>
-                <Form.Row>
-                    <Col md={6} xs={12} className="pr-md-4">
-
-                        <Form.Group>
-                            <Form.Label>Your Name</Form.Label>
-                            <Form.Control
-                                type="text"
-                                defaultValue={name}
-                                {...register("name", { required: true })}
-                                placeholder="Your Name" />
-                        </Form.Group>
-
-                        <Form.Group>
-                            <Form.Label>Email</Form.Label>
-                            <Form.Control
-                                type="text"
-                                defaultValue={email}
-                                {...register("email", { required: true })}
-                                placeholder="Email Address" />
-                        </Form.Group>
-
-                        <Form.Group>
-                            <Form.Label>Address</Form.Label>
-                            <Form.Control
-                                type="text"
-                                {...register("address", { required: true })}
-                                placeholder="Address" />
-                        </Form.Group>
-                    </Col>
-
-                    <Col md={6} xs={12} className="pl-md-4">
-                        <div>
-                            <Form.Label >Card Number</Form.Label>
-                            <CardNumberElement className="form-control" options={options} />
-                        </div>
-                        <div className="mt-3">
-                            <Form.Label >Expiration Date</Form.Label>
-                            <CardExpiryElement className="form-control" options={options} />
-                        </div>
-                        <div className="mt-3">
-                            <Form.Label >CVC</Form.Label>
-                            <CardCvcElement className="form-control" options={options} />
-                        </div>
-                    </Col>
-
-                </Form.Row>
+       <Form onSubmit={handlePayment}>
+          <Row>
+              <Col md='6'>
+              <div className="admin-group">
+                <Form.Label htmlFor="name">Your Name</Form.Label>
+                <Form.Control name="name" id="name" type="text" value={loggedInUser.name} required />
             </div>
-
-            <div className="text-center mt-4">
-                <Button type="submit" variant='info' disabled={!stripe} style={{ padding: ".68rem 2rem" }}>
-                    Pay Now
-                </Button>
+              </Col>
+              <Col md='6'>
+              <div className="admin-group">
+                <Form.Label htmlFor="email">Email Address</Form.Label>
+                <Form.Control name="email" id="email" type="email" value={loggedInUser.email} required />
+            </div>
+              </Col>
+              <Col md='6'>
+              <div className=" admin-group mt-3">
+                <Form.Label htmlFor="address">Address (City)</Form.Label>
+                <Form.Control name="address" id="address" type="text" placeholder="Enter Your Address" required />
+            </div>
+              </Col>
+              <Col md='6' className='admin-group mt-3'>
+              <Form.Label>
+                    <span>Card number</span> <CardNumberElement options={options} />
+                </Form.Label>
+              </Col>
+              <Col md='6' className='admin-group mt-3'>
+              <Form.Label>
+                    <span>Expiration date</span> <CardExpiryElement options={options} />
+                </Form.Label>
+              </Col>
+              <Col md='6' className='admin-group mt-3'>
+              <Form.Label>
+                    <span>CVC</span> <CardCvcElement options={options} />
+                </Form.Label>
+              </Col>
+          </Row>
+            <div className="text-center mt-3">
+                <Button  variant='info'  type="submit" disabled={!stripe}> Checkout </Button>
             </div>
         </Form>
-    </section>
     );
 };
 

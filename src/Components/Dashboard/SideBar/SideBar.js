@@ -22,10 +22,10 @@ const SideBar = ({ show, adminLoading }) => {
                             <FontAwesomeIcon icon={faUserCircle} style={{ fontSize: "1.3rem" }} /> <span>Profile</span>
                         </Link>
                     </li>
-               {!isAdmin?
+               
                         <>
                             <li>
-                            <Link to="/dashboard/book">
+                                 <Link to="/dashboard/book">
                                     <FontAwesomeIcon icon={faShoppingCart} style={{ fontSize: "1.3rem" }} /> <span>Book</span>
                                 </Link>
                             </li>
@@ -40,7 +40,7 @@ const SideBar = ({ show, adminLoading }) => {
                                 </Link>
                             </li>
                         </>
-                  :  <>
+                        <>
                             <li>
                                 <Link to="/dashboard/add-services">
                                     <FontAwesomeIcon icon={faFileMedical} style={{ fontSize: "1.3rem" }} /> <span>Add Services</span>
@@ -62,7 +62,7 @@ const SideBar = ({ show, adminLoading }) => {
                                 </Link>
                             </li>
                     </>
-}  
+ 
              </ul>
              <div className='home-button CTAs'>
                 <Button variant='info' as={Link} to='/' className='back-to-home'><FontAwesomeIcon icon={faSignOutAlt} /> <span className='ml-2'>Back to Home </span></Button>
