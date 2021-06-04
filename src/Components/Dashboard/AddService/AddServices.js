@@ -4,6 +4,7 @@ import axios from 'axios';
 import React, { useState } from 'react';
 import { Button, Col, Form } from 'react-bootstrap';
 import { useForm } from 'react-hook-form';
+import swal from 'sweetalert';
 import './AddService.css';
 
 const AddServices = () => {
@@ -29,7 +30,10 @@ const AddServices = () => {
         })
         .then(res=>{
             reset();
-        console.log("server site", res)
+            if(res){
+                return swal("Successfully Added!", "Your service has been successfully Added.", "success");
+            }
+            swal("Failed!", "Something went wrong! Please try again.", "error", { dangerMode: true });
     })
     }
 

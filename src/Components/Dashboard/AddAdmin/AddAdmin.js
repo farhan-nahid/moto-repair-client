@@ -1,13 +1,34 @@
-import React from 'react';
+import axios from 'axios';
+import React, { useContext } from 'react';
 import { Button, Col, Form } from 'react-bootstrap';
-import { useForm } from 'react-hook-form';
+import { useForm } from "react-hook-form";
+import toast from 'react-hot-toast';
+import swal from 'sweetalert';
+import { UserContext } from '../../../App';
 
 const AddAdmin = () => {
-    const { register, handleSubmit } = useForm();
+    const { loggedInUser: { email } } = useContext(UserContext);
+    const { register, handleSubmit, reset } = useForm();
 
     const onSubmit = data => {
-        console.log(data);
-    }
+        if (email === "admin@test.gmail") {
+            return swal("Permission restriction!", "As a test-admin, you don't have this permission.", "info");
+        }
+        const loading = toast.loading('Adding...Please wait!');
+        axios.post('http://localhost:5000/add-admin', data)
+            .then(res => {
+                reset()
+                toast.dismiss(loading);
+                if (res.data) {
+                    return swal("Successfully Added",  `You Successfully Added  ${data.email}  as an admin.`, "success");
+                }
+                swal("Failed!", "Something went wrong! Please try again.", "error", { dangerMode: true });
+            })
+            .catch(error => {
+                toast.dismiss(loading);
+                swal("Failed!", "Something went wrong! Please try again.", "error", { dangerMode: true })
+            });
+ }
 
     return (
         <section className="make-admin shadow">

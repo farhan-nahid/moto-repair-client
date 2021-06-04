@@ -1,9 +1,9 @@
 // import axios from 'axios';
 import React, { useEffect, useState } from 'react';
-import { Spinner } from 'react-bootstrap';
 import toast from 'react-hot-toast';
 import SwiperCore, { Autoplay, Pagination } from 'swiper';
 import { Swiper, SwiperSlide } from 'swiper/react';
+import spinner from '../../../images/review-loder.gif';
 import Testimonial from '../Testimonial/Testimonial';
 import './Testimonials.css';
 
@@ -55,9 +55,9 @@ const Testimonials = () => {
                                 testimonials.map(testimonial => <SwiperSlide key={testimonial._id}><Testimonial testimonial={testimonial} /></SwiperSlide>)    
                             }
                         </Swiper>
-                        :<div className="text-center">
-                        <Spinner animation="border" variant="info" />
-                    </div>
+                        : <div className="text-center">
+                            <img  className='img-fluid' src={spinner} alt="..." />
+                        </div>
                     }
                 </div>
                 </div>

@@ -1,6 +1,6 @@
-//import axios from "axios";
-import { createContext, lazy, Suspense, useState } from "react";
-import { Toaster } from 'react-hot-toast';
+import axios from "axios";
+import { createContext, lazy, Suspense, useEffect, useState } from "react";
+import toast, { Toaster } from 'react-hot-toast';
 import {
   BrowserRouter as Router,
   Route, Switch
@@ -23,6 +23,14 @@ function App() {
   const [adminLoading, setAdminLoading] = useState(true);
   const [isAdmin, setIsAdmin] = useState(false);
 
+  useEffect(() => {
+    axios.get(`http://localhost:5000/isAdmin?email=${loggedInUser?.email}`)
+      .then(res => {
+        setIsAdmin(res.data);
+        setAdminLoading(false);
+      })
+      .catch(error => toast.error(error.message))
+  }, [loggedInUser?.email]);
 
 
   return (
