@@ -3,6 +3,7 @@ import React, { useContext, useMemo } from 'react';
 import { Button, Col, Form, Row } from 'react-bootstrap';
 import toast from 'react-hot-toast';
 import { UserContext } from '../../../App';
+import './StripePayment.css';
 
 
 const useOptions = () => {
@@ -29,6 +30,7 @@ const useOptions = () => {
 
 
 const StripePayment = ({ orders }) => {
+   // console.log(orders);
     const stripe = useStripe();
     const elements = useElements();
     const options = useOptions();
@@ -45,6 +47,7 @@ const StripePayment = ({ orders }) => {
             type: "card",
             card: elements.getElement(CardNumberElement),
             billing_details: {
+                order:orders.name,
                 name: e.target.name.value,
                 email: e.target.email.value,
                 address: {
@@ -53,14 +56,14 @@ const StripePayment = ({ orders }) => {
             }
         });
 
-        const { card, billing_details } = payload.paymentMethod;
+    console.log(payload);
         const bookingInfo = {
-            orders: orders,
+            payload:payload,
+            order:orders,
+            name: e.target.name.value,
             email: loggedInUser.email,
             paymentMethod: 'Credit Card',
-            card,
-            billing_details,
-            status: 'pending'
+            status: 'Pending'
         };
 
         fetch('http://localhost:5000/add-order', {

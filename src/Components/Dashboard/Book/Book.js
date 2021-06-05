@@ -2,12 +2,13 @@ import { Elements } from '@stripe/react-stripe-js';
 import { loadStripe } from '@stripe/stripe-js';
 import axios from 'axios';
 import React, { useContext, useEffect, useState } from 'react';
-import { Col, Container, Row, Toast } from 'react-bootstrap';
+import { Container, Toast } from 'react-bootstrap';
 import toast from 'react-hot-toast';
 import Select from 'react-select';
 import { UserContext } from '../../../App';
 import infoEmojis from '../../../images/info-emoji.svg';
 import StripePayment from '../StripePayment/StripePayment';
+import './Book.css';
 
 const Book = () => {
     const { selectedService: { name, price } } = useContext(UserContext);
@@ -18,7 +19,7 @@ const Book = () => {
     const options = services.map(service => ({ value: service.name, label: service.name, price: service.price }));
     const defaultOption = name ? { value: name, label: name, price: price } : options[0] || { value: "Engine Repair", label: "Engine Repair", price: 20000 };
     const [selectedOption, setSelectedOption] = useState(defaultOption);
-    const serviceInfo = services.find(service => service.title === selectedOption.value);
+    const orders = services.find(service => service.name === selectedOption.value);
 
     useEffect(() => {
         axios.get('http://localhost:5000/all-services')
@@ -30,10 +31,9 @@ const Book = () => {
         control: styles => (
             {
                 ...styles,
-                backgroundColor: 'white',
-                boxShadow: 'none',
-                border: "2px solid #ced4da",
-                '&:hover': { border: '2px solid #17a2b8' },
+                backgroundColor: '#efeff5',
+                border: "1px solid #17a2b8",
+                '&:hover': { border: '1px solid #17a2b8'},
                 height: "calc(2em + 0.75rem + 2px)"
             }
         ),
@@ -50,82 +50,51 @@ const Book = () => {
     };
 
     return (
-
-
-        <>
-        <Toast className="toast-right" onClose={() => setShow(false)} show={show} delay={5000} autohide>
-            <Toast.Header>
-                <img src={infoEmojis} className="rounded mr-2" alt="Info" />
-                <strong className="mr-auto">Important Info</strong>
-            </Toast.Header>
-            <Toast.Body className="text-center">
-                Use this Card Number to test the payment
-                <br />
-                <b>4242 4242 4242 4242</b>
-            </Toast.Body>
-        </Toast>
-
-        <section >
+         <section className='checkout'>
                 <Container >
-                    <Row className="bg-white p-5 shadow" style={{ borderRadius: "15px", maxWidth:'85rem' }}>
-                        <Col md={6} xs={12} className='admin-group'>
-                            <label >Service</label>
-                            <Select
-                                onChange={option => setSelectedOption(option)}
-                                defaultValue={defaultOption}
-                                options={options}
-                                styles={colourStyles}
-                            />
-                        </Col>
-                        <Col md={6} xs={12} className="admin-group">
-                            <label >Price</label>
-                            <div className="form-control w-50 pl-3" style={{ lineHeight: "2", fontWeight: "500" }}>
-                                ${price || selectedOption.price}
-                            </div>
-                        </Col>
-                    </Row>
+                    <div className="bg-white p-5 shadow checkout-package" style={{ borderRadius: "15px", maxWidth:'85rem' }}>
+                        <table className="checkout-table text-center">
+                            <thead>
+                                <tr>
+                                    <th>Package</th>
+                                    <th>Price</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>
+                                    <Select
+                                        onChange={option => setSelectedOption(option)}
+                                        defaultValue={defaultOption}
+                                        options={options}
+                                        styles={colourStyles}
+                                    />
+                                    </td>
+                                    <td> ৳ {price || selectedOption.price}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
 
-                    <div className="mt-5 bg-white p-5" style={{ borderRadius: "15px", maxWidth:'85rem' }}>
+                     <Toast className="toast-right" style={{marginLeft:'auto'}} onClose={() => setShow(false)} show={show} delay={5000} autohide>
+                        <Toast.Header>
+                            <img src={infoEmojis} className="rounded mr-2" alt="Info" />
+                            <strong className="mr-auto">Important Info</strong>
+                        </Toast.Header>
+                        <Toast.Body className="text-center">
+                            Use this Card Number to test the payment
+                            <br />
+                            <b>4242 4242 4242 4242</b>
+                        </Toast.Body>
+                    </Toast>
+
+                    <div className="mt-5 bg-white shadow p-5" style={{ borderRadius: "15px", maxWidth:'85rem' }}>
                         <Elements stripe={stripePromise}>
-                            <StripePayment serviceInfo={serviceInfo} />
+                            <StripePayment orders={orders} />
                         </Elements>
                     </div>
                 </Container>
         </section>
-    </>
-
-    //     <section className="checkout">
-    //     <Container>
-    //         <div className="checkout-package">
-    //             <table className="checkout-table">
-    //                 <thead>
-    //                     <tr>
-    //                         <th>Package</th>
-    //                         <th>Price</th>
-    //                     </tr>
-    //                 </thead>
-    //                 <tbody>
-    //                     <tr>
-    //                         <td>
-    //                               {/* <Select
-    //                                 onChange={option => setSelectedOption(option)}
-    //                                 defaultValue={defaultOption}
-    //                                 options={options}
-    //                                 styles={colourStyles}
-    //                             /> */}
-    //                         </td>
-    //                         {/* <td> ${price || selectedOption.price}</td> */}
-    //                     </tr>
-    //                 </tbody>
-    //             </table>
-    //         </div>
-    //         <div className="checkout-content">
-    //             <Elements stripe={stripePromise}>
-    //                 <StripePayment  />
-    //             </Elements>
-    //         </div>
-    //     </Container>
-    // </section>
 
     );
 };

@@ -1,0 +1,7 @@
+.admin-group .StripeElement {
+  border: 1px solid #10bad4;
+  background: #efeff5;
+  padding: 10px;
+  border-radius: 5px;
+  width: 55vh;
+}

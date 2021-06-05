@@ -97,23 +97,10 @@
   line-height: 1.3;
 }
 
-.testimonials .card h5 span {
-  font-size: 18px;
-  color: #666666;
-}
-
 .testimonials .card p {
   font-size: 18px;
   color: #777;
   padding-bottom: 15px;
-}
-
-.testimonials .swiper-slide-next h5 {
-  font-size: 24px;
-}
-
-.testimonials .swiper-slide-next h5 span {
-  font-size: 20px;
 }
 
 .testimonials .swiper-slide-next .card-img-top {

@@ -1,7 +1,7 @@
 import { faBook, faCog, faCommentDots, faFileMedical, faListUl, faShoppingCart, faSignOutAlt, faUserCircle, faUserPlus } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React, { useContext } from 'react';
-import { Button, Image } from 'react-bootstrap';
+import { Image } from 'react-bootstrap';
 import { Link, useParams } from 'react-router-dom';
 import { UserContext } from '../../../App';
 import logo from '../../../images/logo.png';
@@ -22,7 +22,7 @@ const SideBar = ({ show, adminLoading }) => {
                             <FontAwesomeIcon icon={faUserCircle} style={{ fontSize: "1.3rem" }} /> <span>Profile</span>
                         </Link>
                     </li>
-               
+               {!isAdmin?
                         <>
                             <li>
                                  <Link to="/dashboard/book">
@@ -40,7 +40,8 @@ const SideBar = ({ show, adminLoading }) => {
                                 </Link>
                             </li>
                         </>
-                        <>
+                        :
+                         <>
                             <li>
                                 <Link to="/dashboard/add-services">
                                     <FontAwesomeIcon icon={faFileMedical} style={{ fontSize: "1.3rem" }} /> <span>Add Services</span>
@@ -62,11 +63,18 @@ const SideBar = ({ show, adminLoading }) => {
                                 </Link>
                             </li>
                     </>
- 
+                }
+             </ul >
+             <ul className="list-unstyled back-button">
+             <li>
+                    <Link to="/" className="back-home brn btn-info text-white">
+                        <FontAwesomeIcon icon={faSignOutAlt} /> Back to Home
+                    </Link>
+                </li>
              </ul>
-             <div className='home-button CTAs'>
+             {/* <div className='home-button CTAs'>
                 <Button variant='info' as={Link} to='/' className='back-to-home'><FontAwesomeIcon icon={faSignOutAlt} /> <span className='ml-2'>Back to Home </span></Button>
-            </div>
+            </div> */}
         </nav>
     );
 };

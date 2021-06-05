@@ -1,5 +1,5 @@
 import React, { useContext, useState } from 'react';
-import { useHistory, useParams } from 'react-router';
+import { useParams } from 'react-router';
 import { UserContext } from '../App';
 import AddAdmin from '../Components/Dashboard/AddAdmin/AddAdmin';
 import AddServices from '../Components/Dashboard/AddService/AddServices';
@@ -18,12 +18,12 @@ const Dashboard = ({adminLoading}) => {
     const { loggedInUser: { email }, isAdmin } = useContext(UserContext);
     console.log(email, isAdmin);
     const {panel}=useParams()
-    const history = useHistory();
+   // const history = useHistory();
     const [showSidebar, setShowSidebar] = useState(false);
 
 
 
-    if (
+    /*if (
         !adminLoading && !isAdmin && (
             panel === "profile" ||
             panel === "add-services" ||
@@ -31,7 +31,7 @@ const Dashboard = ({adminLoading}) => {
             panel === "manage-services")
     ) {
         history.replace({ pathname: "/dashboard/profile" });
-    }
+    }*/
 
     return (
         <main className="wrapper">
@@ -43,10 +43,10 @@ const Dashboard = ({adminLoading}) => {
                     :panel === 'book' ? <Book />
                     :panel === "book-list" ? <BookList />
                     :panel === "reviews" ? <Review />
-                    :panel === "add-services"  && isAdmin ? <AddServices />
-                    :panel === "add-admins"  && isAdmin ? <AddAdmin />
-                    :panel === "all-orders"  && isAdmin  ? <OrderList />
-                    :panel === "manage-services"  && isAdmin  ? <ManageService />
+                    :panel === "add-services" ?  <AddServices />
+                    :panel === "add-admins"  ? <AddAdmin />
+                    :panel === "all-orders"  ? <OrderList />
+                    :panel === "manage-services"   ? <ManageService />
                     : null
                 }
             </div>

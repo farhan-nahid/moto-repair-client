@@ -93,11 +93,11 @@ a[data-toggle="collapse"] {
   background: #6d7fcc;
 }
 
-#sidebar ul.CTAs {
+#sidebar ul.back-button {
   padding: 20px;
 }
 
-#sidebar ul.CTAs a {
+#sidebar ul.back-button a {
   text-align: center;
   font-size: 0.9em !important;
   display: block;
@@ -105,21 +105,18 @@ a[data-toggle="collapse"] {
   margin-bottom: 5px;
 }
 
+#sidebar ul.back-button a:hover,
+a.back-button:focus,
+a.back-button:active {
+  background-color: #067586 !important;
+  margin-right: 0 !important;
+}
+
 #sidebar a.back-home:hover,
 a.back-home:focus,
 a.back-home:active {
   color: white !important;
   margin-right: 0 !important;
-}
-
-/* ---------------------------------------------------
-      CONTENT STYLE
-  ----------------------------------------------------- */
-#content {
-  width: 100%;
-  padding: 20px;
-  min-height: 100vh;
-  transition: all 0.3s;
 }
 
 #sidebarCollapse {
