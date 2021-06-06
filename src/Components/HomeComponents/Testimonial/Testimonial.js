@@ -24,8 +24,11 @@ const Testimonial = ({ testimonial: { name, address, img, description, star } })
             <div className="testimonial-description">
                 <p>{description}</p>
             </div>
-            <h5 className="testimonial-name text-info">{name}</h5>
-            <h6>  {  showRating(star) }  </h6>
+            <h5 className="mb-0 mt-0 pb-0 text-info">{name}</h5>
+            <p className='mb-1 mt-1 pb-0' style={{color:'gray'}}>{address}</p>
+              {
+                   showRating(star) 
+              }
         </div>
     </div>
     );

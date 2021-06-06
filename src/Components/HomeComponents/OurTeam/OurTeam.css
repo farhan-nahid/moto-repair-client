@@ -4,6 +4,7 @@
   background-size: cover;
   text-align: center;
   padding-top: 5rem;
+  height: 100vh;
 }
 
 .team-container h3 {
@@ -25,12 +26,16 @@
 
 .swiper-slide {
   background-position: center;
-  width: 300px;
-  height: 300px;
 }
 
 .swiper-slide img {
   display: block;
   width: 100%;
   background-size: cover;
+}
+
+@media (min-width: 1800px) {
+  .swiper-slide {
+    height: 50vh;
+  }
 }

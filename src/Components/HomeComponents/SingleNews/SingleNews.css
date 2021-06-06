@@ -1,0 +1,20 @@
+.blog-card {
+  border-radius: 5px;
+  box-shadow: 0px 7px 10px rgba(0, 0, 0, 0.1);
+  transition: 0.3s;
+}
+
+.blog-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+.blog-card img {
+  height: 200px;
+  object-fit: contain;
+  width: 100%;
+}
+
+.blog-card h5 {
+  color: #404655;
+}

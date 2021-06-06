@@ -15,7 +15,7 @@ const AddAdmin = () => {
             return swal("Permission restriction!", "As a test-admin, you don't have this permission.", "info");
         }
         const loading = toast.loading('Adding...Please wait!');
-        axios.post('http://localhost:5000/add-admin', data)
+        axios.post('https://moto-repair.herokuapp.com/add-admin', data)
             .then(res => {
                 reset()
                 toast.dismiss(loading);

@@ -15,7 +15,7 @@ const BookList = () => {
     const [orders, setOrders] = useState([]);
 
     useEffect(() => {
-        axios.get('http://localhost:5000/orderedByEmail?email='+loggedInUser.email)
+        axios.get('https://moto-repair.herokuapp.com/orderedByEmail?email='+loggedInUser.email)
             .then(res => {
                 setOrders(res.data);
             })
@@ -34,7 +34,7 @@ const BookList = () => {
             if (wantDelete) {
                 const loading = toast.loading('Deleting...Please wait!');
                 const removedServices = orders.filter(item => item._id !== id);
-                axios.delete(`http://localhost:5000/cancel-order/${id}`)
+                axios.delete(`https://moto-repair.herokuapp.com/cancel-order/${id}`)
                     .then(res => {
                         toast.dismiss(loading);
                         if (res.data) {
@@ -50,15 +50,14 @@ const BookList = () => {
             }
         });
 
-
-        
+       
     }
 
     return (
           <Container>
                 <div className="shadow p-5 bg-white" style={{ borderRadius: "15px" }}>
             {orders.length >0  ? 
-                <Table hover borderless responsive>
+                <Table hover borderless responsive style={{ borderRadius: "15px", color:'gray' }}>
                 <thead className="bg-light">
                     <tr>
                         <th>Sl. No</th>

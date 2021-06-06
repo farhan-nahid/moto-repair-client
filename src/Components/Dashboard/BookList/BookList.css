@@ -9,13 +9,15 @@
 .done {
   color: #009444;
   background: #c6ffe0;
-
+  text-align: center;
+  padding: 10px;
   border-radius: 5px;
 }
 
 .on.going {
   color: #ffc107;
   background: #ffbb3e4b;
-
+  text-align: center;
+  padding: 10px;
   border-radius: 5px;
 }

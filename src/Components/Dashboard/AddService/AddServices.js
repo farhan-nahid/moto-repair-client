@@ -20,7 +20,7 @@ const AddServices = () => {
             image: imageURL
         }
 
-        const url='http://localhost:5000/add-services'
+        const url='https://moto-repair.herokuapp.com/add-services'
         fetch(url,{
             method: 'POST',
             headers:{

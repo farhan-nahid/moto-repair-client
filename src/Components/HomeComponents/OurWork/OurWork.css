@@ -1,0 +1,31 @@
+.slider-container {
+  background-image: url("../../../images/header-bg.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 70vh;
+}
+
+.slider-container h3 {
+  color: #404655;
+  font-weight: 600;
+}
+
+.carousel-image {
+  width: 350px;
+  height: 250px;
+  object-fit: contain;
+}
+
+@media only screen and (min-width: 442px) and (max-width: 582px) {
+  .carousel-image {
+    width: 98%;
+    height: 180px;
+  }
+}
+
+@media only screen and (min-width: 583px) and (max-width: 1000px) {
+  .carousel-image {
+    width: 90%;
+    height: 180px;
+  }
+}

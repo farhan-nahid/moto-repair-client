@@ -6,6 +6,7 @@ import { Link, useParams } from 'react-router-dom';
 import { UserContext } from '../../../App';
 import logo from '../../../images/logo.png';
 import './SideBar.css';
+import SideBarSpinner from './SideBarSpinner';
 
 const SideBar = ({ show, adminLoading }) => {
     const { isAdmin } = useContext(UserContext);
@@ -16,6 +17,7 @@ const SideBar = ({ show, adminLoading }) => {
                 <Image className='d-inline-block image' src={logo}  alt='...' />
                 <h4 className='d-inline-block'>Moto Repair</h4>
             </div>
+            {adminLoading ? <SideBarSpinner /> :
             <ul className='list-unstyled sidebar-items'>
                     <li>
                         <Link to="/dashboard/profile" className={panel === "profile" ? "link-active" : ""} >
@@ -65,6 +67,7 @@ const SideBar = ({ show, adminLoading }) => {
                     </>
                 }
              </ul >
+          }
              <ul className="list-unstyled back-button">
              <li>
                     <Link to="/" className="back-home brn btn-info text-white">

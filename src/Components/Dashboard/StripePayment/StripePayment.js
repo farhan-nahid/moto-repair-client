@@ -56,7 +56,6 @@ const StripePayment = ({ orders }) => {
             }
         });
 
-    console.log(payload);
         const bookingInfo = {
             payload:payload,
             order:orders,
@@ -66,7 +65,7 @@ const StripePayment = ({ orders }) => {
             status: 'Pending'
         };
 
-        fetch('http://localhost:5000/add-order', {
+        fetch('https://moto-repair.herokuapp.com/add-order', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(bookingInfo)

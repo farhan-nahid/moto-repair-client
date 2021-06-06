@@ -1,0 +1,11 @@
+.news-container {
+  background-image: url("../../../images/footer-bg.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.news-container h3 {
+  color: #404655;
+  font-weight: 600;
+  text-align: center;
+}

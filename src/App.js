@@ -2,8 +2,8 @@ import axios from "axios";
 import { createContext, lazy, Suspense, useEffect, useState } from "react";
 import toast, { Toaster } from 'react-hot-toast';
 import {
-  BrowserRouter as Router,
-  Route, Switch
+    BrowserRouter as Router,
+    Route, Switch
 } from "react-router-dom";
 import './App.css';
 import Spinner from "./Components/HomeComponents/Spinner/Spinner";
@@ -24,7 +24,7 @@ function App() {
   const [isAdmin, setIsAdmin] = useState(false);
 
   useEffect(() => {
-    axios.get(`http://localhost:5000/isAdmin?email=${loggedInUser?.email}`)
+    axios.get(`https://moto-repair.herokuapp.com/isAdmin?email=${loggedInUser?.email}`)
       .then(res => {
         setIsAdmin(res.data);
         setAdminLoading(false);
