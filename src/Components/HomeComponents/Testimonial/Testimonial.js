@@ -22,7 +22,7 @@ const Testimonial = ({ testimonial: { name, address, img, description, star } })
         </div>
         <div className="testimonial-content">
             <div className="testimonial-description">
-                <p>{description}</p>
+                <p className='des'>{description}</p>
             </div>
             <h5 className="mb-0 mt-0 pb-0 text-info">{name}</h5>
             <p className='mb-1 mt-1 pb-0' style={{color:'gray'}}>{address}</p>

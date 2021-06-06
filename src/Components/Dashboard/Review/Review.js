@@ -7,23 +7,21 @@ import swal from 'sweetalert';
 import { UserContext } from '../../../App';
 
 const Review = () => {
-    const { loggedInUser: { photo, name, email } } = useContext(UserContext);
+    const { loggedInUser: {  name, photo  } } = useContext(UserContext);
+    console.log(photo);
     const { register, handleSubmit, reset } = useForm();
 
     const onSubmit = (data, e) => {
         const loading = toast.loading('Uploading...Please wait!');
-        
-        const userData ={
-        img: data.img = photo || "https://i.ibb.co/5GzXkwq/user.png",
-        email: data.email = email
-      }
+
+         data.img = photo || "https://i.ibb.co/5GzXkwq/user.png"
+       
       
         axios.post('https://moto-repair.herokuapp.com/add-review', data)
         .then(res => {
             toast.dismiss(loading);
             if (res.data) {
-                reset();
-                userData(data);
+                reset()
                 return swal("Successfully Submitted", "Your review has been successfully submitted.", "success");
             }
             swal("Failed!", "Something went wrong! Please try again.", "error", { dangerMode: true });
@@ -69,7 +67,7 @@ const Review = () => {
 
                         </Form.Row>
                         <div className="text-center mt-4">
-                            <Button type="submit" variant='info' style={{ padding: ".6rem 2rem" }}>Submit</Button>
+                            <Button type="submit" variant='info'>Submit</Button>
                         </div>
                     </div>
                  </Form>
