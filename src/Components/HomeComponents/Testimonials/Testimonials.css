@@ -1,5 +1,5 @@
 .testimonials {
-  background-image: url("../../../images/about-bg.png");
+  background-image: url("../../../images/about-section-bg.png");
   background-repeat: no-repeat;
   background-size: cover;
   padding: 70px 0;
@@ -24,11 +24,10 @@
   margin-top: -0.6em;
 }
 
-.review-title h2 {
+.review-title h3 {
   margin: 0.3em 0 0;
-  font-size: 2rem;
+  color: #404655;
   font-weight: 600;
-  color: #444;
   padding-bottom: 20px;
   margin-bottom: 50px;
   position: relative;
@@ -40,7 +39,7 @@
   margin-bottom: 30px;
 }
 
-.review-title h2:before {
+.review-title h3:before {
   content: "";
   position: absolute;
   left: 0;

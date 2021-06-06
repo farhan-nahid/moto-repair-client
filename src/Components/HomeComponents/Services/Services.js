@@ -7,7 +7,6 @@ import ServiceDetail from '../ServiceDetail/ServiceDetail';
 import './Services.css';
 
 const Services = () => {
-  //  const [loading, setLoading] = useState(true);
     const [services, setServices] = useState([]);
 
     useEffect(() => {
@@ -27,7 +26,8 @@ const Services = () => {
                     {
                         services.length  > 0 ? 
                             services.map(service => <ServiceDetail key={service._id} service={service} />)
-                            : <div className="m-auto">
+                            : 
+                            <div className="m-auto">
                                 <img  className='img-fluid' src={spinner} alt="..." />
                             </div>
                     }

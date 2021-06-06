@@ -1,6 +1,6 @@
 import React from 'react';
 import { Button, Col, Container, Image, Row } from 'react-bootstrap';
-import banner from '../../../images/banner.png';
+import banner from '../../../images/banner-img.png';
 
 const Banner = () => {
     return (

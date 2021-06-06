@@ -5,8 +5,11 @@
 }
 
 .testimonial-card .des {
+  color: #404655;
   overflow: auto;
   height: 150px;
+  text-align: center;
+  margin: auto;
 }
 
 .testimonial-avatar-box {

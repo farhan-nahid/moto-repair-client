@@ -14,7 +14,7 @@ const Benefits = () => {
                     </Col>
                     <Col className="offset-md-1" md={5}>
                         <h1>Here are some of Your Benefits!</h1>
-                        <p className="text-muted"><small>Our repair technicians have a wealth of experience repairing motor cycles  and diagnosing wealth of great thing experience repairing errors.</small></p>
+                        <p className="text-muted"><small>Our repair technicians have a wealth of experience repairing motor cycles  and diagnosing wealth of great thing experience repairing errors. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sed pariatur quas dolore in natus commodi?</small></p>
                         <Button variant="info">Go There</Button>
                     </Col>
                 </Row>

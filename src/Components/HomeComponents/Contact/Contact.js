@@ -8,7 +8,6 @@ import './Contact.css';
 
 
 const Contact = () => {
-
     const { register, handleSubmit, reset } = useForm();
 
     const onSubmit = data => {

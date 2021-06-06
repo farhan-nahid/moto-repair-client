@@ -1,4 +1,3 @@
-// import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import toast from 'react-hot-toast';
 import SwiperCore, { Autoplay, Pagination } from 'swiper';
@@ -25,7 +24,7 @@ const Testimonials = () => {
                 <div className="my-5 py-4">
                     <div className="review-title text-center">
                         <span>What Our Clients Says</span>
-                        <h2>Testimonials</h2>
+                        <h3>Testimonials</h3>
                     </div>
                     <div>
                     {testimonials.length > 0 ?

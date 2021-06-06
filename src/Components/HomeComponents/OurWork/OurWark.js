@@ -37,25 +37,25 @@ const OurWark = () => {
 
     return (
          <div className='slider-container  pb-5 pt-5'>
-        <Container>
-            <div className="mb-5">
-                <h3 className='text-center section-title'> Here are some of our works </h3>
-            </div>
-            
-            <Carousel responsive={responsive} infinite={true} autoPlay={true} autoPlaySpeed={5000}
-                keyBoardControl={true}  dotListClass="custom-dot-list-style" showDots={true}>
-                {
-                    allCarousel.map((carousel,index)=>{
-                        return(
-                            <div key={index+100}>
-                                <img className='carousel-image' src={carousel} alt=""/>
-                            </div>
-                        )
-                    })
-                }
-            </Carousel>;
-        </Container>
-    </div>
+            <Container>
+                  <div className="mb-5">
+                      <h3 className='text-center section-title'> Here are some of our works </h3>
+                  </div>
+                  
+                  <Carousel responsive={responsive} infinite={true} autoPlay={true} autoPlaySpeed={5000}
+                      keyBoardControl={true}  dotListClass="custom-dot-list-style" showDots={true}>
+                      {
+                          allCarousel.map((carousel,index)=>{
+                              return(
+                                  <div key={index+100}>
+                                      <img className='carousel-image' src={carousel} alt=""/>
+                                  </div>
+                              )
+                          })
+                      }
+                  </Carousel>;
+              </Container>
+         </div>
     );
 };
 

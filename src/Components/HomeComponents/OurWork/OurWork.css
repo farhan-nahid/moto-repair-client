@@ -8,6 +8,23 @@
 .slider-container h3 {
   color: #404655;
   font-weight: 600;
+  position: relative;
+  padding-bottom: 20px;
+  margin-bottom: 50px;
+}
+
+.slider-container h3:before {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 5rem;
+  height: 3px;
+  background: #17a2b8;
+  border-radius: 20px;
+  left: 50% !important;
+  -webkit-transform: translateX(-50%);
+  transform: translateX(-50%);
 }
 
 .carousel-image {

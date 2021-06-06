@@ -6,7 +6,6 @@ import { handleSignOut, initializeLoginFramework } from '../../LoginAuth/LoginMa
     
 
 const ProfilePopper = () => {
-
     const { loggedInUser: { name, email, photo }, setLoggedInUser } = useContext(UserContext);
 
     const signOut = () => {

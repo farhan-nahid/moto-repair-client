@@ -12,6 +12,26 @@
   font-weight: 600;
 }
 
+.team-container p {
+  position: relative;
+  padding-bottom: 20px;
+  margin-bottom: 50px;
+}
+
+.team-container p:before {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 5rem;
+  height: 3px;
+  background: #17a2b8;
+  border-radius: 20px;
+  left: 50% !important;
+  -webkit-transform: translateX(-50%);
+  transform: translateX(-50%);
+}
+
 .team-member {
   background-color: aliceblue;
   padding: 10px;
