@@ -4,6 +4,7 @@ import axios from 'axios';
 import React, { useState } from 'react';
 import { Button, Col, Container, Form } from 'react-bootstrap';
 import { useForm } from 'react-hook-form';
+import toast from 'react-hot-toast';
 import swal from 'sweetalert';
 import './AddService.css';
 
@@ -29,8 +30,10 @@ const AddServices = () => {
             body:JSON.stringify(serviceData)
         })
         .then(res=>{
+            const loading = toast.loading('Adding...Please wait!');
             reset();
             if(res){
+                toast.dismiss(loading);
                 return swal("Successfully Added!", "Your service has been successfully Added.", "success");
             }
             swal("Failed!", "Something went wrong! Please try again.", "error", { dangerMode: true });

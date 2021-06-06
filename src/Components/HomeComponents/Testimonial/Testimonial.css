@@ -2,11 +2,11 @@
   background: #fff;
   border-radius: 6px;
   position: relative;
-  height: 70vh;
 }
 
 .testimonial-card .des {
-  overflow-y: scroll;
+  overflow: auto;
+  height: 150px;
 }
 
 .testimonial-avatar-box {

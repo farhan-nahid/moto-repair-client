@@ -47,51 +47,50 @@ const BookList = () => {
                         toast.dismiss(loading);
                         swal("Failed!", "Something went wrong! Please try again.", "error", { dangerMode: true })
                     })
-            }
-        });
-
-       
+                 }
+            });   
     }
 
     return (
           <Container>
                 <div className="shadow p-5 bg-white" style={{ borderRadius: "15px" }}>
-            {orders.length >0  ? 
-                <Table hover borderless responsive style={{ borderRadius: "15px", color:'gray' }}>
-                <thead className="bg-light">
-                    <tr>
-                        <th>Sl. No</th>
-                        <th>Name</th>
-                        <th>Email ID</th>
-                        <th>Service</th>
-                        <th>Status</th>
-                        <th>Cancel</th>
-                    </tr>
-                </thead>
-                {
-                    orders.map((order, index) => {
-                        return (
-                            <tbody key={order._id} style={{ fontWeight: "500" }}>
+                    {
+                        orders.length >0  ? 
+                        <Table className='table-style' hover responsive >
+                            <thead className="bg-light ">
                                 <tr>
-                                    <td>{index+1}</td>
-                                    <td>{order.name}</td>
-                                    <td>{order.email}</td>
-                                    <td>{order.order.name}</td>
-                                    <td ><span className={order.status.toLowerCase()}>{order.status}</span></td>
-                                    <td>
-                                        <Button variant="outline-danger" className="p-1 ml-3 mb-0"onClick={()=> handleDeleteService(order._id)}>
-                                            <FontAwesomeIcon icon={faTrash} className="mx-1" />
-                                        </Button>
-                                    </td>
+                                    <th>Sl. No</th>
+                                    <th>Name</th>
+                                    <th>Service</th>
+                                    <th>Time</th>
+                                    <th>Status</th>
+                                    <th>Action</th>
                                 </tr>
-                            </tbody>
-                     )
-                })
-            }
-            </Table> : <TableSpinner />
-          }
-            </div>>
-        </Container>
+                            </thead>
+                                {
+                                    orders.map((order, index) => {
+                                        return (
+                                            <tbody key={order._id} style={{ fontWeight: "500" }}>
+                                                <tr>
+                                                    <td>{index+1}</td>
+                                                    <td>{order.name}</td>
+                                                    <td>{order.order.name}</td>
+                                                    <td>{order.time}</td>
+                                                    <td >
+                                                        <span className={order.status.toLowerCase()}>{order.status}</span>
+                                                    </td>
+                                                    <td>
+                                                        <Button variant="outline-danger" className="p-1 ml-3 mb-0"onClick={()=> handleDeleteService(order._id)}>
+                                                            <FontAwesomeIcon icon={faTrash} className="mx-1" />
+                                                        </Button>
+                                                    </td>
+                                                </tr>
+                                            </tbody> ) })
+                                }
+                        </Table> : <TableSpinner />
+                    }
+                 </div>>
+          </Container>
     );
 };
 

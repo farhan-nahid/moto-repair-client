@@ -28,7 +28,7 @@ const Testimonial = ({ testimonial: { name, address, img, description, star } })
             <p className='mb-1 mt-1 pb-0' style={{color:'gray'}}>{address}</p>
               {
                    showRating(star) 
-              }
+              } 
         </div>
     </div>
     );

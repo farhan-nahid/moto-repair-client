@@ -63,12 +63,7 @@ const Book = () => {
                             <tbody>
                                 <tr>
                                     <td>
-                                    <Select
-                                        onChange={option => setSelectedOption(option)}
-                                        defaultValue={defaultOption}
-                                        options={options}
-                                        styles={colourStyles}
-                                    />
+                                        <Select onChange={option => setSelectedOption(option)}   defaultValue={defaultOption} options={options} styles={colourStyles} />
                                     </td>
                                     <td> ৳ {price || selectedOption.price}</td>
                                 </tr>
@@ -76,7 +71,7 @@ const Book = () => {
                         </table>
                     </div>
 
-                     <Toast className="toast-right" style={{marginLeft:'auto'}} onClose={() => setShow(false)} show={show} delay={5000} autohide>
+                    <Toast className="toast-right" style={{marginLeft:'auto'}} onClose={() => setShow(false)} show={show} delay={5000} autohide>
                         <Toast.Header>
                             <img src={infoEmojis} className="rounded mr-2" alt="Info" />
                             <strong className="mr-auto">Important Info</strong>

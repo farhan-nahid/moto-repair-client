@@ -41,8 +41,9 @@ const OrderList = () => {
     return (
         <Container>
             <div className="shadow p-5 bg-white" style={{ borderRadius: "15px" }}>
-            {orders.length > 0 ? 
-             <Table hover borderless responsive style={{ borderRadius: "15px", color:'gray' }}>
+            {
+                orders.length > 0 ? 
+             <Table className='table-style' hover responsive >
                     <thead className="bg-light">
                         <tr>
                             <th>Sl. No</th>
@@ -71,12 +72,10 @@ const OrderList = () => {
                                             </select>
                                         </td>
                                     </tr>
-                                </tbody>
-                            )
-                        })
+                                </tbody>)})
                     }
                 </Table> :  <TableSpinner />
-                }
+           }
             </div>
         </Container>
         

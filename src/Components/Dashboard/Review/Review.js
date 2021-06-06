@@ -8,15 +8,12 @@ import { UserContext } from '../../../App';
 
 const Review = () => {
     const { loggedInUser: {  name, photo  } } = useContext(UserContext);
-    console.log(photo);
     const { register, handleSubmit, reset } = useForm();
 
     const onSubmit = (data, e) => {
         const loading = toast.loading('Uploading...Please wait!');
-
          data.img = photo || "https://i.ibb.co/5GzXkwq/user.png"
-       
-      
+   
         axios.post('https://moto-repair.herokuapp.com/add-review', data)
         .then(res => {
             toast.dismiss(loading);
@@ -70,8 +67,8 @@ const Review = () => {
                             <Button type="submit" variant='info'>Submit</Button>
                         </div>
                     </div>
-                 </Form>
-            </Container>
+                </Form>
+             </Container>
         </section>
     );
 };

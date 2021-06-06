@@ -33,7 +33,7 @@ const AddAdmin = () => {
     return (
             <Container>
                 <Form onSubmit={handleSubmit(onSubmit)} className='admin-group'>
-                    <div className="p-5 mx-md-5 mt-5 bg-white form-main d-flex justify-content-center shadow" style={{ borderRadius: "15px", maxWidth:'85rem' }}>
+                    <div className="p-5 mt-5 bg-white d-flex justify-content-center shadow" style={{ borderRadius: "15px"}}>
                         <div className="py-md-4">
                             <Form.Label>Email</Form.Label>
                             <Form.Row>
