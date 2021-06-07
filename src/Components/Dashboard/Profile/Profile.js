@@ -26,7 +26,7 @@ const Profile = () => {
                         <h4>{name}</h4>
                         <p className="text-secondary mb-1">{email}</p>
                     </div>
-                    <Button onClick={signOut} variant='info'>Log Out</Button>
+                    <Button onClick={signOut} variant='info' className='main-button'>Log Out</Button>
                 </div>
             </Card.Body>
         </Card>

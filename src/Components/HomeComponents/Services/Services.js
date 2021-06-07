@@ -18,11 +18,11 @@ const Services = () => {
     }, [])
 
     return (
-        <section id="services" className="text-center">
+        <section className="services">
             <Container>
                 <h5>What We Do</h5>
                 <h3>Services We Provide</h3>
-                <Row className="justify-content-center mx-auto mt-md-5 pt-5">
+                <Row className="mt-5 justify-content-center">
                     {
                         services.length  > 0 ? 
                             services.map(service => <ServiceDetail key={service._id} service={service} />)

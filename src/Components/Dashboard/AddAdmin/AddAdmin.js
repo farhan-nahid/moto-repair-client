@@ -41,7 +41,7 @@ const AddAdmin = () => {
                                     <Form.Control type="text"{...register("email", { required: true })}  placeholder="Admin's Email Address" />
                                 </Form.Group>
                                 <Form.Group as={Col} xs="auto">
-                                    <Button type="submit"  variant='info' >Add Admin</Button>
+                                    <Button type="submit"  variant='info' className='main-button' >Add Admin</Button>
                                 </Form.Group>
                             </Form.Row>
                         </div>

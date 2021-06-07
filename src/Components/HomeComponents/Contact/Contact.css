@@ -52,12 +52,6 @@ input[type="number"] {
   height: 245px;
 }
 
-.brand-btn {
-  font-size: 1.2rem;
-  padding: 0.8rem 2rem;
-  border-radius: 50px;
-}
-
 @media screen and (max-width: 767px) {
   .contact-group:last-child {
     margin-bottom: 20px;

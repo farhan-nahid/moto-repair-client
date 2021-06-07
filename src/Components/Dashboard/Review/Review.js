@@ -64,7 +64,7 @@ const Review = () => {
 
                         </Form.Row>
                         <div className="text-center mt-4">
-                            <Button type="submit" variant='info'>Submit</Button>
+                            <Button type="submit" variant='info' className='main-button'>Submit</Button>
                         </div>
                     </div>
                 </Form>

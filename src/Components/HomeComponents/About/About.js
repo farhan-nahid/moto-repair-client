@@ -1,5 +1,6 @@
+import { motion } from "framer-motion";
 import React from 'react';
-import { Button, Col, Container, Image, Row } from 'react-bootstrap';
+import { Col, Container, Image, Row } from 'react-bootstrap';
 import about from '../../../images/about-section.png';
 import './About.css';
 
@@ -16,7 +17,7 @@ const About = () => {
                         <h3>Why Choose Us For Repair ?</h3>
                         <span className="animate-border border-black"></span>
                         <p className="text-muted mt-2"> <small>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo pariatur blanditiis voluptatem iusto. Repellat, fugiat mollitia. Architecto dignissimos labore aperiam odit rem, et odio possimus maxime. Accusantium reiciendis magnam repellendus voluptates  </small> </p>
-                        <Button variant="info">Learn More</Button>
+                        <motion.button whileHover={{scale:1.1, textShadow:'0px 0px 8px rgb(255 255 255)', boxShadow:'0px 0px 8px rgb(255 255 255)'}} className='main-button'>Learn More</motion.button>
                     </Col>
                 </Row>
             </Container>

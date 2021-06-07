@@ -42,7 +42,7 @@ const OurWark = () => {
                       <h3 className='text-center section-title'> Here are some of our works </h3>
                   </div>
                   
-                  <Carousel responsive={responsive} infinite={true} autoPlay={true} autoPlaySpeed={5000}
+                  <Carousel responsive={responsive} infinite={true}  autoPlay={true} autoPlaySpeed={2500}
                       keyBoardControl={true}  dotListClass="custom-dot-list-style" showDots={true}>
                       {
                           allCarousel.map((carousel,index)=>{

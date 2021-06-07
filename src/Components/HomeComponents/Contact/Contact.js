@@ -1,6 +1,7 @@
 import emailjs from 'emailjs-com';
+import { motion } from "framer-motion";
 import React from 'react';
-import { Button, Col, Container, Row } from 'react-bootstrap';
+import { Col, Container, Row } from 'react-bootstrap';
 import { useForm } from 'react-hook-form';
 import toast from 'react-hot-toast';
 import swal from 'sweetalert';
@@ -60,7 +61,7 @@ const Contact = () => {
                                 
                             </Row>
                             <div className="mt-3 text-center">
-                                <Button variant='info' className="brand-btn" type="submit">Send Message</Button>
+                            <motion.button whileHover={{scale:1.1, textShadow:'0px 0px 8px rgb(255 255 255)', boxShadow:'0px 0px 8px rgb(255 255 255)'}} className='main-button'>Send Message</motion.button>
                             </div>
                         </form>
                     </div>

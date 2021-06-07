@@ -1,7 +1,9 @@
+import { motion } from "framer-motion";
 import React from 'react';
-import { Button, Col, Container, Image, Row } from 'react-bootstrap';
+import { Col, Container, Image, Row } from 'react-bootstrap';
 import benefits from '../../../images/befefit.png';
 import './Benefits.css';
+
 
 
 const Benefits = () => {
@@ -15,7 +17,7 @@ const Benefits = () => {
                     <Col className="offset-md-1" md={5}>
                         <h1>Here are some of Your Benefits!</h1>
                         <p className="text-muted"><small>Our repair technicians have a wealth of experience repairing motor cycles  and diagnosing wealth of great thing experience repairing errors. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sed pariatur quas dolore in natus commodi?</small></p>
-                        <Button variant="info">Go There</Button>
+                        <motion.button whileHover={{scale:1.1, textShadow:'0px 0px 8px rgb(255 255 255)', boxShadow:'0px 0px 8px rgb(255 255 255)'}} className='main-button'>Go There</motion.button>
                     </Col>
                 </Row>
             </Container>

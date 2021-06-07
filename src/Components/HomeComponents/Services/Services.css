@@ -1,4 +1,4 @@
-#services {
+.services {
   background-image: url("../../../images/footerBg.png");
   background-repeat: no-repeat;
   background-size: cover;
@@ -7,19 +7,21 @@
   padding-bottom: 6em;
 }
 
-#services h5 {
+.services h5 {
   color: #10bad4;
   font-weight: 500;
+  text-align: center;
 }
 
-#services h3 {
+.services h3 {
+  text-align: center;
   color: #404655;
   font-weight: 600;
   margin-top: 1rem;
   position: relative;
 }
 
-#services h3::before {
+.services h3::before {
   content: "";
   position: absolute;
   left: 50%;
@@ -30,21 +32,4 @@
   border-radius: 20px;
   -webkit-transform: translateX(-50%);
   transform: translateX(-50%);
-}
-
-#services > div {
-  width: 70%;
-}
-
-@media (max-width: 768px) {
-  #services > div {
-    width: 100%;
-  }
-  #services h5 {
-    font-weight: 600;
-  }
-  #services h1 {
-    font-weight: 700;
-    font-size: 1.5rem;
-  }
 }

@@ -124,7 +124,7 @@ const StripePayment = ({ orders }) => {
           </Row>
           
             <div className="text-center mt-3">
-                <Button  variant='info'  type="submit" disabled={!stripe}> Checkout </Button>
+                <Button  variant='info'  type="submit" className='main-button' disabled={!stripe}> Checkout </Button>
             </div>
         </Form>
     );
