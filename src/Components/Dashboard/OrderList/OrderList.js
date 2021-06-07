@@ -48,7 +48,7 @@ const OrderList = () => {
                         <tr>
                             <th>Sl. No</th>
                             <th>Name</th>
-                            <th>Email ID</th>
+                            <th>Email</th>
                             <th>Service</th>
                             <th>Pay With</th>
                             <th>Status</th>

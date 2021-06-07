@@ -15,11 +15,13 @@ const AddServices = () => {
     const onSubmit =  data => {
 
         const serviceData = {
-            name:data.title,
+            name:data.name,
             price:data.price,
             description:data.description,
             image: imageURL
         }
+
+        const loading = toast.loading('Adding...Please wait!');
 
         const url='https://moto-repair.herokuapp.com/add-services'
         fetch(url,{
@@ -30,11 +32,10 @@ const AddServices = () => {
             body:JSON.stringify(serviceData)
         })
         .then(res=>{
-            const loading = toast.loading('Adding...Please wait!');
-            reset();
             if(res){
-                toast.dismiss(loading);
-                return swal("Successfully Added!", "Your service has been successfully Added.", "success");
+                toast.dismiss(loading);       
+                reset();
+                return swal(`Successfully Added!`, `${data.name} service has been successfully Added`, "success");
             }
             swal("Failed!", "Something went wrong! Please try again.", "error", { dangerMode: true });
     })
@@ -58,11 +59,11 @@ const AddServices = () => {
         <section className="add-service">
             <Container>
                 <Form onSubmit={handleSubmit(onSubmit)} className="w-100 shadow">
-                    <div className="p-5 bg-white form-main" style={{ borderRadius: "15px", maxWidth:'85rem' }}>
+                    <div className="p-5 bg-white form-main" style={{ borderRadius: "15px" }}>
                         <Form.Row className="justify-content-center">
                             <Form.Group as={Col} md={5} sm={12} className="mr-md-5 admin-group">
                                 <Form.Label>Service Title</Form.Label>
-                                <Form.Control type="text" {...register("title", { required: true })}placeholder="Enter Service Title" />
+                                <Form.Control type="text" {...register("name", { required: true })}placeholder="Enter Service Title" />
                             </Form.Group>
 
                             <Form.Group as={Col} md={5} sm={12} className='admin-group'>

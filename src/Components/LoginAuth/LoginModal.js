@@ -5,14 +5,7 @@ import { useForm } from 'react-hook-form';
 import toast from 'react-hot-toast';
 import { useHistory, useLocation } from 'react-router-dom';
 import { UserContext } from '../../App';
-import {
-    createUserWithEmailAndPassword,
-    handleGoogleSignIn,
-    handleSignOut,
-    initializeLoginFramework,
-    setJWTToken,
-    signInWithEmailAndPassword
-} from './LoginManager';
+import { createUserWithEmailAndPassword, handleGoogleSignIn, handleSignOut, initializeLoginFramework, setJWTToken, signInWithEmailAndPassword } from './LoginManager';
 import './LoginModal.css';
 
 const LoginModal = () => {
@@ -159,7 +152,7 @@ const LoginModal = () => {
                                 </label>
                                 <label>
                                     <span>Password</span>
-                                    <input {...registerSignUp("password", { required: true })} type="password" />
+                                    <input {...registerSignUp("password", { required: true })}type="password" />
                                 </label>
                                 <Button type="submit" variant='info' className="mt-5">Sign Up</Button>
                                 <button type="button" onClick={googleSignIn} className="fb-btn mt-3" >Join with <span>Google</span></button>

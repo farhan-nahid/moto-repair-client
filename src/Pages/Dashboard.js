@@ -3,6 +3,7 @@ import { useParams } from 'react-router';
 import { UserContext } from '../App';
 import AddAdmin from '../Components/Dashboard/AddAdmin/AddAdmin';
 import AddServices from '../Components/Dashboard/AddService/AddServices';
+import AllReview from '../Components/Dashboard/AllReview/AllReview';
 import Book from '../Components/Dashboard/Book/Book';
 import BookList from '../Components/Dashboard/BookList/BookList';
 import ManageService from '../Components/Dashboard/ManageService/ManageService';
@@ -20,7 +21,7 @@ const Dashboard = ({adminLoading}) => {
     const [showSidebar, setShowSidebar] = useState(false);
 
     return (
-        <main className="wrapper">
+        <main className="dashboard-container">
           <SideBar show={showSidebar} adminLoading={adminLoading} />
             <div  id="content">
                <NavBar setShowSidebar={setShowSidebar} show={showSidebar}  />
@@ -33,6 +34,7 @@ const Dashboard = ({adminLoading}) => {
                     :panel === "add-admins" && isAdmin  ? <AddAdmin />
                     :panel === "all-orders" && isAdmin  ? <OrderList />
                     :panel === "manage-services" && isAdmin  ? <ManageService />
+                    :panel === "all-reviews" && isAdmin  ? <AllReview />
                     : null
                 }
             </div>

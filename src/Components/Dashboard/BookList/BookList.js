@@ -14,6 +14,21 @@ const BookList = () => {
     const { loggedInUser } = useContext(UserContext);
     const [orders, setOrders] = useState([]);
 
+    
+    const restrictPermission = id => {
+        let matchedID = false;
+        for (let i = 0; i < 1; i++) {
+            const { _id } = orders[i];
+            if (id === _id) {
+                matchedID = true;
+            }if (loggedInUser  && matchedID) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+
     useEffect(() => {
         axios.get('https://moto-repair.herokuapp.com/orderedByEmail?email='+loggedInUser.email)
             .then(res => {
@@ -23,6 +38,9 @@ const BookList = () => {
     }, [loggedInUser.email])
 
     const handleDeleteService = (id) =>{
+        if (restrictPermission(id)) {
+            return swal("Permission restriction!", "As your first order, you don't have permission to Cancel it. But you can cancel your other orders.", "info");
+        }
 
         swal({
             title: "Are you sure?",

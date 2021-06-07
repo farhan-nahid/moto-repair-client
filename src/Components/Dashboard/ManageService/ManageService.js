@@ -81,7 +81,7 @@ const ManageService = () => {
                     {
                         services.length > 0 ?
                         <Table  className='table-style' hover responsive>
-                            <thead>
+                            <thead  className="bg-light">
                                 <tr>
                                     <th>Sl. No</th>
                                     <th>Service</th>

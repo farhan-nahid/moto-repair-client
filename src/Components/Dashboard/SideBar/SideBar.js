@@ -1,4 +1,4 @@
-import { faBook, faCog, faCommentDots, faFileMedical, faListUl, faShoppingCart, faSignOutAlt, faUserCircle, faUserPlus } from '@fortawesome/free-solid-svg-icons';
+import { faBiking, faClipboardList, faQuoteLeft, faShoppingBag, faSignOutAlt, faTasks, faUserCircle, faUserPlus } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { motion } from "framer-motion";
 import React, { useContext } from 'react';
@@ -22,24 +22,24 @@ const SideBar = ({ show, adminLoading }) => {
             <ul className='list-unstyled sidebar-items'>
                     <motion.li whileHover={{scale:1.3, originX:0, color:'#00000'}} transition={{type:'spring', stiffness:1000}}>
                         <Link to="/dashboard/profile" className={panel === "profile" ? "link-active" : ""} >
-                            <FontAwesomeIcon icon={faUserCircle} style={{ fontSize: "1.3rem" }} /> <span>Profile</span>
+                            <FontAwesomeIcon icon={faUserCircle}  /> <span>Profile</span>
                         </Link>
                     </motion.li>
                {!isAdmin?
                         <>
                             <motion.li whileHover={{scale:1.3, originX:0, color:'#00000'}} transition={{type:'spring', stiffness:1000}}>
                                  <Link to="/dashboard/book" className={panel === "book" ? "link-active" : ""} >
-                                    <FontAwesomeIcon icon={faShoppingCart} style={{ fontSize: "1.3rem" }} /> <span>Book</span>
+                                    <FontAwesomeIcon icon={faShoppingBag}  /> <span>Book</span>
                                 </Link>
                             </motion.li>
                             <motion.li whileHover={{scale:1.3, originX:0, color:'#00000'}} transition={{type:'spring', stiffness:1000}}>
                                 <Link to="/dashboard/book-list" className={panel === "book-list" ? "link-active" : ""}>
-                                    <FontAwesomeIcon icon={faBook} style={{ fontSize: "1.3rem" }} /> <span>Book List</span>
+                                    <FontAwesomeIcon icon={faClipboardList} /> <span>Book List</span>
                                 </Link>
                             </motion.li>
                             <motion.li whileHover={{scale:1.3, originX:0, color:'#00000'}} transition={{type:'spring', stiffness:1000}}>
                                 <Link to="/dashboard/reviews" className={panel === "reviews" ? "link-active" : ""}>
-                                    <FontAwesomeIcon icon={faCommentDots} style={{ fontSize: "1.3rem" }} /> <span>Reviews</span>
+                                    <FontAwesomeIcon icon={faQuoteLeft}/> <span>Reviews</span>
                                 </Link>
                             </motion.li>
                         </>
@@ -47,22 +47,27 @@ const SideBar = ({ show, adminLoading }) => {
                          <>
                             <motion.li whileHover={{scale:1.3, originX:0, color:'#00000'}} transition={{type:'spring', stiffness:1000}}>
                                 <Link to="/dashboard/add-services" className={panel === "add-services" ? "link-active" : ""}>
-                                    <FontAwesomeIcon icon={faFileMedical} style={{ fontSize: "1.3rem" }} /> <span>Add Services</span>
+                                    <FontAwesomeIcon icon={faBiking}/> <span>Add Services</span>
                                 </Link>
                             </motion.li>
                             <motion.li whileHover={{scale:1.3, originX:0, color:'#00000'}} transition={{type:'spring', stiffness:1000}}>
                                 <Link to="/dashboard/add-admins" className={panel === "add-admins" ? "link-active" : ""}>
-                                    <FontAwesomeIcon icon={faUserPlus} style={{ fontSize: "1.3rem" }} /> <span>Add Admin</span>
-                                </Link>
-                            </motion.li>
-                            <motion.li whileHover={{scale:1.3, originX:0, color:'#00000'}} transition={{type:'spring', stiffness:1000}}>
-                                <Link to="/dashboard/all-orders" className={panel === "all-orders" ? "link-active" : ""}>
-                                    <FontAwesomeIcon icon={faListUl} style={{ fontSize: "1.3rem" }} /> <span>Orders List</span>
+                                    <FontAwesomeIcon icon={faUserPlus} /> <span>Add Admin</span>
                                 </Link>
                             </motion.li>
                             <motion.li whileHover={{scale:1.3, originX:0, color:'#00000'}} transition={{type:'spring', stiffness:1000}}>
                                 <Link to="/dashboard/manage-services" className={panel === "manage-services" ? "link-active" : ""}>
-                                    <FontAwesomeIcon icon={faCog} style={{ fontSize: "1.3rem" }} /> <span>Manage Services</span>
+                                    <FontAwesomeIcon icon={faTasks} /> <span>Manage Services</span>
+                                </Link>
+                            </motion.li>
+                            <motion.li whileHover={{scale:1.3, originX:0, color:'#00000'}} transition={{type:'spring', stiffness:1000}}>
+                                <Link to="/dashboard/all-orders" className={panel === "all-orders" ? "link-active" : ""}>
+                                    <FontAwesomeIcon icon={faClipboardList} /> <span>Orders List</span>
+                                </Link>
+                            </motion.li>
+                            <motion.li whileHover={{scale:1.3, originX:0, color:'#00000'}} transition={{type:'spring', stiffness:1000}}>
+                                <Link to="/dashboard/all-reviews" className={panel === "all-reviews" ? "link-active" : ""}>
+                                    <FontAwesomeIcon icon={faQuoteLeft}/> <span>Manage Reviews</span>
                                 </Link>
                             </motion.li>
                     </>

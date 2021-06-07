@@ -12,10 +12,6 @@
   border-radius: 10px;
 }
 
-.contact-group:not(:last-child) {
-  margin-bottom: 20px;
-}
-
 .contact-group label {
   color: wheat;
   font-weight: 600;

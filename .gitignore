@@ -3,6 +3,8 @@
 .pnp.js
 /src/Components/LoginAuth/LoginConfig.js
 /src/images
+/firebase
+/firebaserc
 
 
 /coverage

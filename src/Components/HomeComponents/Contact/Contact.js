@@ -37,25 +37,25 @@ const Contact = () => {
                             <Row>
                                 <Col md="6">
                                     <div className="contact-group">
-                                        <label htmlFor="name">Your Name</label>
-                                        <input type="text" id="name"  name="name" placeholder="Enter Your Name"  {...register("name", { required: true })} required />
+                                        <label >Your Name</label>
+                                        <input type="text"  name="name" placeholder="Enter Your Name"  {...register("name", { required: true })} required />
                                     </div>
 
                                     <div className="contact-group"  >
-                                        <label htmlFor="email">Email</label>
-                                        <input type="email" id="email" name="email" placeholder="Enter Your Email"  {...register("email", { required: true })} required />
+                                        <label>Email</label>
+                                        <input type="email" name="email" placeholder="Enter Your Email"  {...register("email", { required: true })} required />
                                     </div>
 
                                     <div className="contact-group">
-                                        <label htmlFor="phone">Phone</label>
-                                        <input type="number" id="phone" name="subject" placeholder="Enter Your Phone Number"  {...register("subject", { required: true })} required  />
+                                        <label>Phone</label>
+                                        <input type="phone" name="subject" placeholder="Enter Your Phone Number"  {...register("subject", { required: true })} required  />
                                     </div>  
                                 </Col>
 
                                 <Col md="6">
                                     <div className="contact-group">
-                                        <label htmlFor="message">Message</label>
-                                        <textarea id="message" name="message" placeholder='Give me a mail'  {...register("message", { required: true })} required />
+                                        <label>Message</label>
+                                        <textarea name="message" placeholder='Give me a mail'  {...register("message", { required: true })} required />
                                     </div>
                                 </Col>
                                 

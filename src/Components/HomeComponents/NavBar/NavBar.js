@@ -33,7 +33,7 @@ const NavBar = () => {
                       <Nav.Link href="#link" className="mr-3"><strong>Contact</strong></Nav.Link>
                       <Nav.Link as={Link} to='/dashboard/profile' className="mr-3"><strong>Dashboard</strong></Nav.Link>
                         {
-                            isSignedIn ?  <ProfilePopper /> : <Button as={Link} to='/login' variant="info">Login</Button>
+                            isSignedIn ?  <ProfilePopper /> : <Button as={Link} to='/login' variant="info" className='main-button'>Login</Button>
                         }
                     </Nav>
                   </Navbar.Collapse>
