@@ -27,6 +27,7 @@ const NavBar = ({ setShowSidebar, show }) => {
                      :panel === "all-orders" ?"All Orders" 
                      :panel === "manage-services" ? "Manage Services"
                      :panel === "all-reviews" ? "Manage Reviews"
+                     :panel === "all-admins" ? "Manage Admins"
                      : ""
                     }
                 </h2>

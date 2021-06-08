@@ -10,7 +10,8 @@ import './AddService.css';
 
 const AddServices = () => {
     const { register, handleSubmit, reset } = useForm();
-    const [imageURL, setImageURL] = useState(null)
+    const [imageURL, setImageURL] = useState(null); 
+    const [isButtonDisable, setIsButtonDisable] = useState(true);
 
     const onSubmit =  data => {
 
@@ -33,8 +34,9 @@ const AddServices = () => {
         })
         .then(res=>{
             if(res){
-                toast.dismiss(loading);       
+                toast.dismiss(loading);    
                 reset();
+                setIsButtonDisable(true)
                 return swal(`Successfully Added!`, `${data.name} service has been successfully Added`, "success");
             }
             swal("Failed!", "Something went wrong! Please try again.", "error", { dangerMode: true });
@@ -45,14 +47,18 @@ const AddServices = () => {
         const imageData = new FormData();
         imageData.set('key', 'dbe52342656cdfcd177dc7e9307e81c4');
         imageData.append('image', event.target.files[0])
+        const loading = toast.loading('Uploading...Please wait!');
   
         axios.post('https://api.imgbb.com/1/upload', imageData)
         .then(function (response) {
-          setImageURL(response.data.data.display_url);
+            toast.dismiss(loading);  
+            if(response){
+                toast.success('Successfully upload Image...!!!')    
+                setImageURL(response.data.data.display_url);
+                setIsButtonDisable(false);
+            }
         })
-        .catch(function (error) {
-
-        });
+        .catch(error => toast.error(error.message));
      }
 
     return (
@@ -68,12 +74,12 @@ const AddServices = () => {
 
                             <Form.Group as={Col} md={5} sm={12} className='admin-group'>
                                 <Form.Label >Price</Form.Label>
-                                <Form.Control style={{ maxWidth: "260px" }} type="number" {...register("price", {required: true })} placeholder="Enter Service Price" />
+                                <Form.Control   type="number" {...register("price", {required: true })} placeholder="Enter Service Price" />
                             </Form.Group>
 
                             <Form.Group as={Col} md={5} sm={12} className="mr-md-5 mt-md-3 admin-group">
                                 <Form.Label>Description</Form.Label>
-                                <Form.Control type="text" as="textarea"{...register("description", { required: true})} placeholder="Enter Service Description" />
+                                <Form.Control  type="text" as="textarea"{...register("description", { required: true})} placeholder="Enter Service Description" />
                             </Form.Group>
 
                             <Form.Group as={Col} md={5} sm={12} className="mt-md-3 admin-group">
@@ -86,7 +92,7 @@ const AddServices = () => {
 
                         </Form.Row>
                         <div className="text-center mt-4">
-                            <Button type="submit" variant='info'  className='main-button'>Add Service</Button>
+                            <Button type="submit" variant='info' disabled={isButtonDisable}  className='main-button'>Add Service</Button>
                         </div>
                     </div>
                 </Form>

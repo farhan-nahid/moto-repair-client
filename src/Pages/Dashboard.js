@@ -3,6 +3,7 @@ import { useParams } from 'react-router';
 import { UserContext } from '../App';
 import AddAdmin from '../Components/Dashboard/AddAdmin/AddAdmin';
 import AddServices from '../Components/Dashboard/AddService/AddServices';
+import AllAdmin from '../Components/Dashboard/AllAdmin/AllAdmin';
 import AllReview from '../Components/Dashboard/AllReview/AllReview';
 import Book from '../Components/Dashboard/Book/Book';
 import BookList from '../Components/Dashboard/BookList/BookList';
@@ -35,6 +36,7 @@ const Dashboard = ({adminLoading}) => {
                     :panel === "all-orders" && isAdmin  ? <OrderList />
                     :panel === "manage-services" && isAdmin  ? <ManageService />
                     :panel === "all-reviews" && isAdmin  ? <AllReview />
+                    :panel === "all-admins" && isAdmin  ? <AllAdmin />
                     : null
                 }
             </div>

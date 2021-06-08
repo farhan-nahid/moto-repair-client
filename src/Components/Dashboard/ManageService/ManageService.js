@@ -34,13 +34,12 @@ const ManageService = () => {
         return false;
     }
 
-    const handleUpdateService = id => {
+    const handleUpdateService = (id) =>{
         if (restrictPermission(id)) {
             return swal("Permission restriction!", "As a test-admin, you don't have permission to update 6 core services. But you can update your added services.", "info");
         }else{
-            return swal("Permission restriction!", "This Feature is not implement yet. wait some days.....", "info");
+            return swal("Permission restriction!", "This feature will coming soon...", "info");
         }
-
     }
 
     const handleDeleteService = id => {
@@ -98,7 +97,7 @@ const ManageService = () => {
                                             <td>{service.name}</td>
                                             <td>৳ {service.price}</td>
                                             <td className="text-center">
-                                                <Button variant="outline-success" className="p-1 mb-0" onClick={()=>handleUpdateService(service._id)}>
+                                                <Button variant="outline-success" className="p-1 mb-0" onClick={() => handleUpdateService(service._id)}>
                                                     <FontAwesomeIcon icon={faEdit} className="mx-1" />
                                                 </Button>
                                                 <Button variant="outline-danger" className="p-1 ml-3 mb-0"onClick={() => handleDeleteService(service._id)}>
@@ -111,7 +110,6 @@ const ManageService = () => {
                         </Table> : <TableSpinner />
                     }
                 </div>
-               
             </Container>
     );
 };

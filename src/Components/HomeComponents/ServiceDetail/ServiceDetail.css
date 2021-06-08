@@ -9,3 +9,22 @@
   transform: translateY(-10px);
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
 }
+
+.card-container img {
+  height: 100px;
+  width: 100px;
+  object-fit: contain;
+  margin: auto;
+}
+
+.card-container p {
+  color: #404655;
+  overflow: auto;
+  height: 130px;
+  text-align: center;
+  margin: auto;
+}
+
+.card-footer {
+  background-color: #fff;
+}

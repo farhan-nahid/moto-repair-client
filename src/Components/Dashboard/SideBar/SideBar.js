@@ -70,6 +70,11 @@ const SideBar = ({ show, adminLoading }) => {
                                     <FontAwesomeIcon icon={faQuoteLeft}/> <span>Manage Reviews</span>
                                 </Link>
                             </motion.li>
+                            <motion.li whileHover={{scale:1.3, originX:0, color:'#00000'}} transition={{type:'spring', stiffness:1000}}>
+                                <Link to="/dashboard/all-admins" className={panel === "all-admins" ? "link-active" : ""}>
+                                    <FontAwesomeIcon icon={faUserCircle}/> <span>Manage Admins</span>
+                                </Link>
+                            </motion.li>
                     </>
                 }
              </ul >
