@@ -63,7 +63,7 @@ const teamSlide = [
 
 const OurTeam = () => {
     return (
-       <section className="team-container">
+       <section className="team-container" id="about">
            <h3>Meet our Awesome team</h3>
            <p><small>Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima, nulla! Lorem ipsum dolor sit</small></p>
             <Swiper effect={'coverflow'} grabCursor={true} centeredSlides={true} loop={true}   

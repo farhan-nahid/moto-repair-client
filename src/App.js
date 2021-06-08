@@ -2,9 +2,10 @@ import axios from "axios";
 import { createContext, lazy, Suspense, useEffect, useState } from "react";
 import toast, { Toaster } from 'react-hot-toast';
 import {
-    BrowserRouter as Router,
-    Route, Switch
+  BrowserRouter as Router,
+  Route, Switch
 } from "react-router-dom";
+import ScrollToTop from "react-scroll-to-top";
 import './App.css';
 import Spinner from "./Components/HomeComponents/Spinner/Spinner";
 import { getDecodedUser } from "./Components/LoginAuth/LoginManager";
@@ -15,7 +16,9 @@ const Home = lazy(() => import ('./Pages/Home'));
 const Login = lazy(() => import ('./Pages/Login'));
 
 
+
 export const UserContext = createContext();
+
 
 function App() {
   const [loggedInUser, setLoggedInUser] = useState(getDecodedUser());
@@ -35,6 +38,7 @@ function App() {
 
   return (
     <UserContext.Provider value={{ loggedInUser, setLoggedInUser, isAdmin, selectedService, setSelectedService }}>
+      <ScrollToTop smooth />
       <Router>
       <Toaster />
       <Suspense fallback={<Spinner />}>

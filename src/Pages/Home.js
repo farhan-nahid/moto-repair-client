@@ -20,8 +20,8 @@ const Home = () => {
             <OurTeam />
             <Services />
             <OurWark />
-            <Benefits />
             <LatestNews />
+            <Benefits />
             <Testimonials />
             <Partners />
             <Contact />

@@ -6,7 +6,7 @@ import './Banner.css';
 
 const Banner = () => {
     return (
-        <motion.section  initial={{ y: -250 }} animate={{ y: -10 }} transition={{delay:0.5,  type: 'spring', stiffness:2500}} > 
+        <motion.section  initial={{ y: -250 }} animate={{ y: -10 }} transition={{delay:0.5,  type: 'spring', stiffness:2500}} id='home' > 
             <Container>
                 <Row className="align-items-center justify-content-center banner">
                     <Col md={4}>

@@ -18,7 +18,7 @@ const Services = () => {
     }, [])
 
     return (
-        <section className="services">
+        <section className="services" id='service'>
             <Container>
                 <h5>What We Do</h5>
                 <h3>Services We Provide</h3>

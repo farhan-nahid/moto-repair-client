@@ -33,7 +33,7 @@ const LatestNews = () => {
       ]
 
     return (
-          <section className='news-container'>
+          <section className='news-container' id='blog'>
             <Container className="py-5">
               <h3>Latest News From Our Blog</h3>
               <Row className="mt-5">

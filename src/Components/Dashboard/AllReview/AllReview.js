@@ -89,7 +89,7 @@ const AllReview = () => {
                         }
                 </Table> : <TableSpinner />
             }
-         </div>>
+         </div>
   </Container>
     );
 };

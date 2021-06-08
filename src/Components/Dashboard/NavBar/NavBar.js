@@ -8,11 +8,7 @@ const NavBar = ({ setShowSidebar, show }) => {
     return (
         <Navbar expand="lg" variant="light" bg="white">
         <Container fluid>
-            <button
-                onClick={() => setShowSidebar(!show)}
-                type="button" id="sidebarCollapse"
-                className={show ? "navbar-btn active" : "navbar-btn"}
-            >
+            <button  onClick={() => setShowSidebar(!show)} type="button" id="sidebarCollapse" className={show ? "navbar-btn active" : "navbar-btn"} >
                 <span></span>
                 <span></span>
                 <span></span>
@@ -30,6 +26,7 @@ const NavBar = ({ setShowSidebar, show }) => {
                      :panel === "add-admins" ? "Add Admins"
                      :panel === "all-orders" ?"All Orders" 
                      :panel === "manage-services" ? "Manage Services"
+                     :panel === "all-reviews" ? "Manage Reviews"
                      : ""
                     }
                 </h2>
