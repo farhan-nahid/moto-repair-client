@@ -1,6 +1,6 @@
 ## [Moto Repair](https://moto-repair.web.app/)
 
-<img src="https://i.ibb.co/NrZCJYM/Moto-Repair-3.png" alt="Moto-Repair-3" border="0">
+<img src="https://i.ibb.co/DCXLG4S/Moto-Repair.png" alt="Moto-Repair" border="0" />
 
 ### About This Site:
 
